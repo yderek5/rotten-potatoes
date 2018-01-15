@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+
 var app = express();
 
 // These just require our controllers(controllers are = ./routes)
@@ -19,6 +20,7 @@ app.use('/login', login);
 app.use('/', index);
 app.use('/users', users);
 app.use('/users/:username/edit', users);
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
