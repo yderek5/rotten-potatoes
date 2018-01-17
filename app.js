@@ -13,13 +13,14 @@ var register = require('./routes/register');
 var login = require('./routes/login');
 var index = require('./routes/index');
 var users = require('./routes/users');
+var reviews = require('./routes/reviews');
 
 // These are the URL endpoints
 app.use('/register', register);
 app.use('/login', login);
 app.use('/', index);
 app.use('/users', users);
-app.use('/users/:username/edit', users);
+app.use('/reviews', reviews);
 
 
 // view engine setup

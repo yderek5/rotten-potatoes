@@ -6,10 +6,14 @@ router.get('/', function(req, res) {
   res.render('./home/index', { title: 'Home' });
 });
 
+/* GET specific game info */
+router.get('/games/:gameTitle', function(req, res) {
+  res.render('./home/game', { title: 'single game' });
+});
 
-//this route can be moved, just testing front end for it.  lmg 1.15.18
-router.get('/game', function(req, res) {
-  res.render('./home/game', { title: 'Home' });
+/* GET list of all games we have on record */
+router.get('/games', function(req, res) {
+  res.render('./home/gameList', {title: 'game list'});
 });
 
 module.exports = router;
