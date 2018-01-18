@@ -14,6 +14,7 @@ var login = require('./routes/login');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var reviews = require('./routes/reviews');
+// var apiRoutes = require('./routes/apiRoutes');
 
 // These are the URL endpoints
 app.use('/register', register);
@@ -21,6 +22,7 @@ app.use('/login', login);
 app.use('/', index);
 app.use('/users', users);
 app.use('/reviews', reviews);
+// app.use('/apiRoutes', apiRoutes);
 
 
 // view engine setup
