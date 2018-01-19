@@ -13,8 +13,19 @@ var Game_table = sequelize.define("game_table", {
       autoIncrement: true
   },
   name: {
-      type: Sequelize.STRING
-  }
+      type: Sequelize.STRING,
+  }, 
+  description: {
+      type: Sequelize.TEXT
+  }, 
+  image_thumbnail: {
+    type: Sequelize.TEXT
+  }, 
+  external_id: {
+    type: Sequelize.STRING,
+    allowNull: true,
+  }, 
+  
 }, {
   timestamps: false
 });
@@ -23,3 +34,16 @@ var Game_table = sequelize.define("game_table", {
 Game_table.sync();
 
 module.exports = Game_table;
+
+
+
+// var gameObject = {
+//   description:  game.deck,
+//   image_thumbnail: game.image.thumb_url, //string
+//   image: game.image.screen_url, //string
+//   external_id: game.id,
+//   guid: game.guid, 
+//   name:  game.name, //string
+//   original_release_date: game.original_release_date,
+//   platforms: []
+//   }
