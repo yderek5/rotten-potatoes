@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+var db = require('../models');
 /* GET review page */
 router.get('/', function(req, res) {
     res.render('./reviews/index', {title: 'Reviews'});
@@ -8,12 +8,14 @@ router.get('/', function(req, res) {
 
 /* GET single review page */
 router.get('/:id', function(req, res) {
-    res.render('./reviews/show', {title: 'single review'});
-});
-
-/* GET create review page */
-router.get('/new', function(req, res) {
-    res.render('./reviews/new', {title: 'create a review'});
+    var gameId = req.params.id;
+    db.game_tables.findOne({
+        where: {
+            id: gameID,
+        }
+   }).then(function(results){
+       res.json(results);
+   })
 });
 
 /* GET edit page */
