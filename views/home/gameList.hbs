@@ -1,2 +1,17 @@
 <h1>this is the {{title}} page</h1>
-<p>we could show the {{title}} of everything we have in our db</p>
+
+<table>
+    <tr>
+        <th>Image</th>
+        <th>Game Name</th>
+        <th>Description</th>
+    </tr>
+    {{#each gamesList}}
+    <tr>
+        <td><img src="{{this.image_thumbnail}}"></td>
+        <td><a href="/games/{{this.id}}">{{this.name}}</a></td>
+        <td>{{this.description}}</td>
+    </tr>
+    {{/each}}
+</table>
+
