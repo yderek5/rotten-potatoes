@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes){
-    var Game_table = sequelize.define("game_tables", {
+    var game_tables = sequelize.define("game_tables", {
         id: {
             type: DataTypes.INTEGER, 
             primaryKey: true, 
@@ -21,5 +21,12 @@ module.exports = function(sequelize, DataTypes){
     }, {
         timestamps:false,
     });
-    return Game_table;
+
+    game_tables.associate = function(models){
+        game_tables.hasMany(models.reviews_tables, {
+            onDelete: "cascade"
+        });
+    }
+
+    return game_tables;
 };

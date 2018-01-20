@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes){
-    var Users_table = sequelize.define("user_tables", {
+    var user_table = sequelize.define("user_table", {
         id: {
             type: DataTypes.INTEGER, 
             primaryKey: true, 
@@ -20,5 +20,11 @@ module.exports = function(sequelize, DataTypes){
     }, {
         timestamps:false,
     });
-    return Users_table;
+
+    user_table.associate = function(models){
+        user_table.hasMany(models.reviews_tables,{
+            onDelete: "cascade"
+        });
+    }
+    return user_table;
 }

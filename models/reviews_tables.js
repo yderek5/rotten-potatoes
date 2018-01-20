@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes){
-    var Reviews_table = sequelize.define("reviews_tables", {
+    var reviews_tables= sequelize.define("reviews_tables", {
         id: {
             type: DataTypes.INTEGER, 
             primaryKey: true, 
@@ -19,16 +19,28 @@ module.exports = function(sequelize, DataTypes){
         }, 
         soundtrack: {
             type: DataTypes.INTEGER
-        }, 
-        users_id: {
-            type: DataTypes.INTEGER
-        }, 
-        games_id: {
-            type: DataTypes.INTEGER
         }
     }, {
         timestamps: false,
     });
 
-    return Reviews_table;
+    reviews_tables.associate = function(models){
+        reviews_tables.belongsTo(models.game_tables, {
+            // as: 'gamesID',
+            foreignKey: {
+                allowNull: false
+              }
+        });
+    };
+
+    reviews_tables.associate = function(models){
+        reviews_tables.belongsTo(models.user_table, {
+            // as: 'usersID',
+            foreignKey: {
+                allowNull: false
+              }
+        });
+    };
+    
+    return reviews_tables
 }
