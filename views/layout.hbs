@@ -2,30 +2,58 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>ROTTEN POTATOES</title>
 	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
+	<link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="./stylesheets/style.css">
 
 </head>
 <body>
 	<!-- NAV BAR -->
+	<div class="container">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<a class="navbar-brand" href="/"><img src="./images/rotten-potatoes-logo.png"></a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
 
-	<header>
-		<nav class='main-nav'>
-			<div class='container'>
-				<h1><a class = 'navbar-brand' href="index.html">Rotten Potatoes</a></h1>
-				<ul class = 'nav nav-pills navbar-right'>
-					<li class = 'active'><a href="index.html">Home</a></li>
-					<li><a href='tbd3'>About Us</a></li>
-					<li><a href='tbd1'>My Account</a></li>
-					<li><a href='tbd1'>Sign In</a></li>
-				</ul>
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+		<li class="nav-item">
+			<a class="nav-link" href="#">Login</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="#">My Profile</a>
+		</li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			Browse Games
+			</a>
+			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			<a class="dropdown-item" href="#">Genre 1</a>
+			<a class="dropdown-item" href="#">Genre 2</a>
+			<div class="dropdown-divider"></div>
+			<a class="dropdown-item" href="#">Platform 1</a>
+			<a class="dropdown-item" href="#">Platform 2</a>
+			<div class="dropdown-divider"></div>
+			<a class="dropdown-item" href="#">All Games</a>
 			</div>
-		</nav>
 
-	</header>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="#">Add New Game</a>
+		</li>
+		</ul>
+		<form class="form-inline my-2 my-lg-0">
+		<input class="form-control mr-sm-2" type="search" placeholder="Search Game Titles" aria-label="Search">
+		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+		</form>
+	</div>
+	</nav>
+
 
 	{{{  body  }}}
 
@@ -33,21 +61,18 @@
 
 	<footer>
 		<section id='footer'>
-			<div class='container'>
 				<div class='row'>
 					<div class='col-sm-12 text-center'>
 						<p>Copyright &copy; 2018 Rotten Potatoes </p>
 					</div>
 				</div>
-			</div>
-
+			
 		</section>
 	</footer>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/js/gamesData.js"></script>
-	<script type="text/javascript" src="/javascripts/main.js"></script>
-	
 </body>
 </html>

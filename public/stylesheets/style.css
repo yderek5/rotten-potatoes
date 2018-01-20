@@ -1,8 +1,53 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #bbc5b6;
 }
 
 a {
-  color: #00B7FF;
+  color: #5a5646;
+}
+
+.navbar-brand {
+  height: 78px;
+  padding: 0px;
+}
+
+.card-header {
+  background-color: #5a5646;
+  color: #ffffff;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 20px;
+}
+
+.card {
+  margin-top: 20px;
+}
+
+h3 {
+  font-size: 30px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.carousel {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+footer {
+  height: 60px;
+  background-color: #5a5646;
+  padding: 20px;
+  margin-top: 20px;
+  color: #fff;
+}
+
+.carousel-inner .carousel-item {
+  height: 300px;  /* add this */
+}
+
+.carousel-inner .carousel-item .carousel-caption {
+  text-shadow: 1px 1px 20px #000;
+  font-family: 'Share Tech Mono', monospace;
 }
