@@ -2,78 +2,74 @@
 
 	<!-- MAIN CONTENT -->
 	
-	<div class='main-content'>
-		<div class='container'>
-			<div class='row'>
-				<div class='col-md-9'>
+
 
 					<!-- CALLING THIS 'HERO GAMES' - GAMES TO SHOWCASE -->
 
-					<div class='content-hero-games'>
-						<div class='panel panel-default rp-panel'>
-							<div class='panel-body'>
-								Content for hero games goes here...maybe slider, carousel
+					<div id="myCarousel" class="carousel slide" data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+						<li data-target="#myCarousel" data-slide-to="1"></li>
+						<li data-target="#myCarousel" data-slide-to="2"></li>
+					</ol>
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<div class="carousel-caption d-none d-md-block">
+								<h5>Grand Theft Auto IV</h5>
 							</div>
+						<img class="d-block w-100" src="./images/gta.jpg" alt="First slide">
+							
+						</div>
+						<div class="carousel-item">
+							<div class="carousel-caption d-none d-md-block">
+								<h5>Fallout 3</h5>
+							</div>
+						<img class="d-block w-100" src="./images/fo3.png" alt="Second slide">
+						</div>
+						<div class="carousel-item">
+							<div class="carousel-caption d-none d-md-block">
+								<h5>Metal Gear Solid 4: Guns of the Patriots</h5>
+							</div>
+						<img class="d-block w-100" src="./images/mgs4.jpg" alt="Third slide">
 						</div>
 					</div>
-				</div>
-				<div class='col-md-3 col-offset-1'>
-
-					<!-- ENTRY POINT TO REVIEW A GAME, INCLUDES SEARCH FORM -->
-
-					<div class='content-review-game'>
-						<div class='panel panel-default rp-panel'>
-							<div class='panel-heading'>
-								<div class= 'panel-title'>
-									<h3>Review a game</h3>
-								</div>
-							</div>
-							<div class='panel-body'>
-								<p><a href="">Go here to review a game</a></p>
-								<div class='row'>
-									<div class='col-xs-12'>
-										<div class="form-group" action="/action_page.php">
-	    								<div class="input-group">
-	      								<input type="text" class="form-control" id="game" placeholder="Search for game..."  name="game">
-	    								
-		    								<span class='input-group-btn'>
-		    									<button type="button" class="btn btn-default">Submit</button>
-		    								</span>
-	    								</div>
-	    							</div>
-  								</div>
-  							</div>
-							</div>
-						</div>
+					<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
 					</div>
-				</div>
-			</div>  <!-- END ROW 1 -->
+
+<!-- END ROW 1 -->
 			<div class='row'>
 				<div class='col-md-4'>
 
 					<!-- TOP 10 REVIEWED GAMES LIST -->
 
 					<div class='content-best-games'>
-						<div class='panel panel-default rp-panel'>
-							<div class='panel-heading'>
+						<div class='card'>
+							<div class='card-header'>
 								Best reviewed games!
-								<span class='badge'>Score</span>
+								<span class='badge badge-secondary'>Score</span>
 							</div>
 							<ul class='list-group game-list' id='best-games-list'>
 								<li class='list-group-item game'>
-									<span class='badge'>8.5</span>
+									<span class='badge badge-secondary'>8.5</span>
 									<a href="">Awesome game 1</a>
 								</li>
 								<li class='list-group-item game'>
-									<span class='badge'>8.3</span>
+									<span class='badge badge-secondary'>8.3</span>
 									<a href="">Awesome game 2</a>
 								</li>
 								<li class='list-group-item game'>
-									<span class='badge'>8.2</span>
+									<span class='badge badge-secondary'>8.2</span>
 									<a href="">Awesome game 3</a>
 								</li>
 								<li class='list-group-item game'>
-									<span class='badge'>7</span>
+									<span class='badge badge-secondary'>7</span>
 									<a href="">Awesome game 4</a>
 								</li>
 							</ul>
@@ -86,25 +82,25 @@
 					<!-- WORST 10 GAMES LIST -->
 
 					<div class='content-worst-games'>
-						<div class='panel panel-default rp-panel'>
-							<div class='panel-heading'>
+						<div class='card'>
+							<div class='card-header'>
 								Worst reviewed games!
 							</div>
 							<ul class='list-group game-list' id='worst-games-list'>
 								<li class='list-group-item game'>
-									<span class='badge'>3.5</span>
+									<span class='badge badge-secondary'>3.5</span>
 									<a href="">bad game 1</a>
 								</li>
 								<li class='list-group-item game'>
-									<span class='badge'>4.3</span>
+									<span class='badge badge-secondary'>4.3</span>
 									<a href="">bad game 2</a>
 								</li>
 								<li class='list-group-item game'>
-									<span class='badge'>5.2</span>
+									<span class='badge badge-secondary'>5.2</span>
 									<a href="">bad game 3</a>
 								</li>
 								<li class='list-group-item game'>
-									<span class='badge'>6.2</span>
+									<span class='badge badge-secondary'>6.2</span>
 									<a href="">bad game 4</a>
 								</li>
 							</ul>
@@ -117,25 +113,25 @@
 					<!-- NEW GAMES LIST -->
 
 					<div class='content-new-games'>
-						<div class='panel panel-default rp-panel'>
-							<div class='panel-heading'>
+						<div class='card'>
+							<div class='card-header'>
 								New games!
 							</div>
 							<ul class='list-group game-list' id='new-games-list'>
 								<li class='list-group-item game'>
-									<span class='badge'>1.15.18</span>
+									<span class='badge badge-secondary'>1.15.18</span>
 									<a href="">new game 1</a>
 								</li>
 								<li class='list-group-item game'>
-									<span class='badge'>1.18.18</span>
+									<span class='badge badge-secondary'>1.18.18</span>
 									<a href="">new game 2</a>
 								</li>
 								<li class='list-group-item game'>
-									<span class='badge'>2.1.18</span>
+									<span class='badge badge-secondary'>2.1.18</span>
 									<a href="">new game 3</a>
 								</li>
 								<li class='list-group-item game'>
-									<span class='badge'>3.5.18</span>
+									<span class='badge badge-secondary'>3.5.18</span>
 									<a href="">new game 4</a>
 								</li>
 							</ul>
@@ -144,7 +140,5 @@
 				</div>
 
 			</div>  <!-- END ROW 2 -->
-		</div> <!-- END CONTAINER -->
-	</div> <!--  END MAIN CONTENT -->
 	
 	
