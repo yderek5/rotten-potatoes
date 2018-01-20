@@ -16,6 +16,7 @@ $("document").ready(function(){
 
 	})
 
+
 // $("#register").on("submit", function(event) {
 // 	event.preventDefault();
 // 	var username = $("#username").val().trim();
