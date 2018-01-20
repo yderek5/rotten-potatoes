@@ -24,9 +24,10 @@ router.get("/api/games/:id"), function(req, res){
    })
 };
 
-//sequelize command to pull results of top ten games
-router.get("/api/topTenGames", function(req,res){
-    db.reviews_tables.
-})
+
+// //sequelize command to pull results of top ten games
+// router.get("/api/topTenGames", function(req,res){
+//     db.reviews_tables.
+// })
 
 module.exports = router;
