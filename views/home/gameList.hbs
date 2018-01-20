@@ -9,7 +9,7 @@
     {{#each gamesList}}
     <tr>
         <td><img src="{{this.image_thumbnail}}"></td>
-        <td>{{this.name}}</td>
+        <td><a href="/games/{{this.id}}">{{this.name}}</a></td>
         <td>{{this.description}}</td>
     </tr>
     {{/each}}

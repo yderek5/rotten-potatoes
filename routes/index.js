@@ -8,8 +8,21 @@ router.get('/', function(req, res) {
 });
 
 /* GET specific game info */
-router.get('/games/:gameTitle', function(req, res) {
-  res.render('./home/game', { title: 'single game' });
+router.get('/games/:id', function(req, res) {
+  var gameID = req.params.id;
+  db.game_tables.findOne({
+    where: {
+      id: gameID,
+    }
+  }).then(function(data){
+
+    res.render('./home/game', {
+      title: 'single game', 
+      gameTitle: data.name, 
+      gameImage: data.image_thumbnail, 
+      gameDescription: data.description 
+    });
+  })
 });
 
 /* GET list of all games we have on record */
