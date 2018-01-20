@@ -64,34 +64,46 @@
 							<div class='panel panel-default rp-panel'>
 								<div class = 'panel-heading'>
 									<div class='panel-title'>
-										Review This Game
+										<h4>Review This Game!</h4>
+										<hr>
 									</div>
 								</div>
 								<div class='panel-body'>
-									<form action="">
-
-										<div class='form-group rp-radio' id='form-gameplay'>
-											<label class="radio-inline">
-							  				<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
-											</label>
-											<label class="radio-inline">
-							 					<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2
-											</label>
-											<label class="radio-inline">
-							  				<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 3
-											</label>
-										</div>
-										<div class='form-group rp-radio' id='form-replayability'>
-											<label class="radio-inline">
-							  				<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
-											</label>
-											<label class="radio-inline">
-							 					<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2
-											</label>
-											<label class="radio-inline">
-							  				<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 3
-											</label>
-										</div>		
+									<form action="/register/api" method="POST">
+										<fieldset>
+											<div class="form-check form-check-inline">
+												<label class="form-check-label" for="gameplay">Gameplay </label>
+												<div class="controls">
+													<!-- Gameplay -->
+													<input type="radio" name="gameplay" id="inlineRadio1" value="1">1
+													<input type="radio" name="gameplay" id="inlineRadio2" value="2">2
+													<input type="radio" name="gameplay" id="inlineRadio3" value="3">3
+													<input type="radio" name="gameplay" id="inlineRadio4" value="4">4
+													<input type="radio" name="gameplay" id="inlineRadio5" value="5">5
+													<input type="radio" name="gameplay" id="inlineRadio6" value="6">6
+													<input type="radio" name="gameplay" id="inlineRadio7" value="7">7
+													<input type="radio" name="gameplay" id="inlineRadio8" value="8">8
+													<input type="radio" name="gameplay" id="inlineRadio9" value="9">9
+													<input type="radio" name="gameplay" id="inlineRadio10" value="10">10
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="replayability" class="control-label">Replayability</label>
+												<div class="controls">
+													<!-- Replayability -->
+													<input type="radio" name="replayability" id="inlineRadio1" value="1">1
+													<input type="radio" name="replayability" id="inlineRadio2" value="2">2
+													<input type="radio" name="replayability" id="inlineRadio3" value="3">3
+													<input type="radio" name="replayability" id="inlineRadio4" value="4">4
+													<input type="radio" name="replayability" id="inlineRadio5" value="5">5
+													<input type="radio" name="replayability" id="inlineRadio6" value="6">6
+													<input type="radio" name="replayability" id="inlineRadio7" value="7">7
+													<input type="radio" name="replayability" id="inlineRadio8" value="8">8
+													<input type="radio" name="replayability" id="inlineRadio9" value="9">9
+													<input type="radio" name="replayability" id="inlineRadio10" value="10">10
+												</div>
+											</div>
+										</fieldset>		
 									</form>
 								</div>
 							</div>
