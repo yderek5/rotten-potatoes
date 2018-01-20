@@ -16,7 +16,22 @@ $("document").ready(function(){
 
 	})
 
+$("#register").on("submit", function(event) {
+	event.preventDefault();
+	var username = $("#username").val().trim();
+	var email = $("#email").val().trim();
+	var password = $("#password").val();
 
+	$.ajax({
+		url: '/api/register',
+		type: 'POST',
+		data: {
+			username: username,
+			email: email,
+			password: password
+		}
+	})
+});
 
 
 
