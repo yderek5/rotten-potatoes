@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var db = require("./models");
 
 var app = express();
 
@@ -15,6 +15,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var reviews = require('./routes/reviews');
 var apiRoutes = require('./routes/apiRoutes');
+
 
 // These are the URL endpoints
 app.use('/register', register);
