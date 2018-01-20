@@ -6,8 +6,8 @@ router.get('/', function(req, res) {
     res.render('./register/register');
 });
 
-router.post('/api/register', function(req, res) {
-    res.send(req.body.data);
+router.post('/api', function(req, res) {
+    res.json(req.body);
 });
 
 module.exports = router;
