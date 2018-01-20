@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": "",
+    "username": "potato",
+    "password": "BootCamp",
     "database": "potato",
-    "host": "127.0.0.1",
+    "host": "lynamdb.crwd97ixioxz.us-east-2.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {

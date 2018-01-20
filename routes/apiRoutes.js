@@ -1,17 +1,26 @@
 var express = require('express');
 var router = express.Router();
-var db = require("../models");
+var db = require('../models');
+
 
 router.get('/api/topTenGames', function(req, res){
-    db.Game_table.findAll().then(function(results){
-        console.log(results);
+    // console.log("get"); //this part works
+    // console.log(db.game_tables);
+    db.game_tables.findAll().then(function(results){
+        // console.log(results)
         res.json(results);
     })
+
+    // db.Author.findAll({
+    //     include: [db.Post]
+    //   }).then(function(dbAuthor) {
+    //     res.json(dbAuthor);
+    //   });
 });
 
 router.get('/api/worstGames', function(req, res){
-    db.Game_table.findAll().then(function(results){
-        console.log(results);
+    db.game_tables.findAll({}).then(function(results){
+        // console.log(results);
         res.json(results);
     })
 });
