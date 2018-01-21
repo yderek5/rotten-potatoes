@@ -1,21 +1,13 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../models');
-/* GET review page */
+/* GET all reviews for a single game page */
 router.get('/', function(req, res) {
     res.render('./reviews/index', {title: 'Reviews'});
 });
-
-/* GET single review page */
-router.get('/:id', function(req, res) {
-    var gameId = req.params.id;
-    db.game_tables.findOne({
-        where: {
-            id: gameID,
-        }
-   }).then(function(results){
-       res.json(results);
-   })
+/* POST review form data */
+router.post('/api', function(req, res) {
+    // THIS IS WHERE THE REVIEW FORM GOES
 });
 
 /* GET edit page */

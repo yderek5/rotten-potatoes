@@ -4,7 +4,7 @@ var db = require('../models');
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('./home/index', { title: 'Home' });
+  res.render('./home/index');
 });
 
 /* GET specific game info */
@@ -18,8 +18,7 @@ router.get('/games/:id', function(req, res) {
     
     var averages = getAverage(data.dataValues.reviews_tables);
     console.log(averages);
-    res.render('./home/game', {
-      title: 'single game', 
+    res.render('./home/game', { 
       overallScore: averages[4],
       replayability: averages[2],
       graphics: averages[0],

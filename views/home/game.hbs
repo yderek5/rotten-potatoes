@@ -1,108 +1,169 @@
+<div class='main-content'>
+	<div class='container'>
+		<div class='row'>
+			<div class='col-md-7'>
+				<div class='content-game-main'>
+					<div class='panel panel-default rp-panel'>
+						<div class='panel-heading'>
+							<div class='panel-title'>
+								<h3>{{gameTitle}}</h3>
+							</div>
 
-	<div class='main-content'>
-		<div class='container'>
-			<div class='row'>
-				<div class='col-md-7'>
-					<div class='content-game-main'>
-						<div class='panel panel-default rp-panel'>
-							<div class='panel-heading'>
-								<div class='panel-title'>
-									<h3>{{gameTitle}}</h3>
-								</div>
-								
-							</div>
-							<div class='panel-body'>
-								<img src="{{gameImage}}" alt="" id="game-main-image">
-							</div>
-							<div class='panel-body'>
-								{{gameDescription}}
-							</div>
+						</div>
+						<div class='panel-body'>
+							<img src="{{gameImage}}" alt="" id="game-main-image">
+						</div>
+						<div class='panel-body'>
+							{{gameDescription}}
 						</div>
 					</div>
 				</div>
-				<div class='col-md-5'>
-					<div class='content-game-stats'>
-						<div class='panel panel-default rp-panel'>
-							<div class='panel-heading'>
-								<div class= 'panel-title'>
-									<h4>Reviews</h4>
-								</div>
+			</div>
+			<div class='col-md-5'>
+				<div class='content-game-stats'>
+					<div class='panel panel-default rp-panel'>
+						<div class='panel-heading'>
+							<div class='panel-title'>
+								<h4>Reviews</h4>
 							</div>
-							<div class='panel-body'>
-								<ul class='list-group game-stat-list'>
-									
-									<li class='list-group-item game-stat'>
-										Overall Score
-										<span class="badge">{{overallScore}}</span>
-									</li>
-									<li class='list-group-item game-stat'>
-										Game Play
-										<span class="badge">{{gameplay}}</span>
-									</li>
-									<li class='list-group-item game-stat'>
-										Replayability
-										<span class='badge'>{{replayability}}</span>
-									</li>
-									<li class='list-group-item game-stat'>
-										Graphics
-										<span class='badge'>{{graphics}}</span>
-									</li>
-									<li class='list-group-item game-stat'>
-										Soundtrack
-										<span class='badge'>{{soundtrack}}</span>
-									</li>
-								</ul>
-							</div>
+						</div>
+						<div class='panel-body'>
+							<ul class='list-group game-stat-list'>
+
+								<li class='list-group-item game-stat'>
+									Overall Score
+									<span class="badge">{{overallScore}}</span>
+								</li>
+								<li class='list-group-item game-stat'>
+									Game Play
+									<span class="badge">{{gameplay}}</span>
+								</li>
+								<li class='list-group-item game-stat'>
+									Replayability
+									<span class='badge'>{{replayability}}</span>
+								</li>
+								<li class='list-group-item game-stat'>
+									Graphics
+									<span class='badge'>{{graphics}}</span>
+								</li>
+								<li class='list-group-item game-stat'>
+									Soundtrack
+									<span class='badge'>{{soundtrack}}</span>
+								</li>
+							</ul>
 						</div>
 					</div>
 				</div>
-			</div> <!--  end row -->
-			
-		
-				<div class= 'row'>
-					<div class= 'col-md-10 col-md-offset-1'>
-						<div class = 'content-game-review'>
-							<div class='panel panel-default rp-panel'>
-								<div class = 'panel-heading'>
-									<div class='panel-title'>
-										Review This Game
-									</div>
-								</div>
-								<div class='panel-body'>
-									<form action="">
+			</div>
+		</div>
+		<!--  end row -->
 
-										<div class='form-group rp-radio' id='form-gameplay'>
-											<label class="radio-inline">
-							  				<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
-											</label>
-											<label class="radio-inline">
-							 					<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2
-											</label>
-											<label class="radio-inline">
-							  				<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 3
-											</label>
+
+		<div class='row'>
+			<div class='col-md-10 col-md-offset-1'>
+				<div class='content-game-review'>
+					<div class='panel panel-default rp-panel'>
+						<div class='panel-heading'>
+							<div class='panel-title'>
+								<h4>Review This Game!</h4>
+								<hr>
+							</div>
+						</div>
+						<div class='panel-body'>
+							<form id="review-form">
+								<fieldset>
+									<div class="form-check">
+										<label class="form-check-label" for="gameplay">Gameplay</label>
+										<div class="controls">
+											<!-- Gameplay -->
+											<input type="radio" name="gameplay" id="game1" value="1"> 1
+											<input type="radio" name="gameplay" id="game2" value="2"> 2
+											<input type="radio" name="gameplay" id="game3" value="3"> 3
+											<input type="radio" name="gameplay" id="game4" value="4"> 4
+											<input type="radio" name="gameplay" id="game5" value="5"> 5
+											<input type="radio" name="gameplay" id="game6" value="6"> 6
+											<input type="radio" name="gameplay" id="game7" value="7"> 7
+											<input type="radio" name="gameplay" id="game8" value="8"> 8
+											<input type="radio" name="gameplay" id="game9" value="9"> 9
+											<input type="radio" name="gameplay" id="game10" value="10"> 10
 										</div>
-										<div class='form-group rp-radio' id='form-replayability'>
-											<label class="radio-inline">
-							  				<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
-											</label>
-											<label class="radio-inline">
-							 					<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2
-											</label>
-											<label class="radio-inline">
-							  				<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 3
-											</label>
-										</div>		
-									</form>
-								</div>
-							</div>
+									</div>
+								</fieldset>
+								<fieldset>
+									<div class="form-check">
+										<label for="replayability" class="form-check-label">Replayability</label>
+										<div class="controls">
+											<!-- Replayability -->
+											<input type="radio" name="replayability" id="replay1" value="1"> 1
+											<input type="radio" name="replayability" id="replay2" value="2"> 2
+											<input type="radio" name="replayability" id="replay3" value="3"> 3
+											<input type="radio" name="replayability" id="replay4" value="4"> 4
+											<input type="radio" name="replayability" id="replay5" value="5"> 5
+											<input type="radio" name="replayability" id="replay6" value="6"> 6
+											<input type="radio" name="replayability" id="replay7" value="7"> 7
+											<input type="radio" name="replayability" id="replay8" value="8"> 8
+											<input type="radio" name="replayability" id="replay9" value="9"> 9
+											<input type="radio" name="replayability" id="replay10" value="10"> 10
+										</div>
+									</div>
+								</fieldset>
+								<fieldset>
+									<div class="form-check">
+										<label for="graphics" class="form-check-label">Graphics</label>
+										<div class="controls">
+											<!-- Graphics -->
+											<input type="radio" name="graphics" id="graphics1" value="1"> 1
+											<input type="radio" name="graphics" id="graphics2" value="2"> 2
+											<input type="radio" name="graphics" id="graphics3" value="3"> 3
+											<input type="radio" name="graphics" id="graphics4" value="4"> 4
+											<input type="radio" name="graphics" id="graphics5" value="5"> 5
+											<input type="radio" name="graphics" id="graphics6" value="6"> 6
+											<input type="radio" name="graphics" id="graphics7" value="7"> 7
+											<input type="radio" name="graphics" id="graphics8" value="8"> 8
+											<input type="radio" name="graphics" id="graphics9" value="9"> 9
+											<input type="radio" name="graphics" id="graphics10" value="10"> 10
+										</div>
+									</div>
+								</fieldset>
+								<fieldset>
+									<div class="form-check">
+										<label for="soundtrack" class="form-check-label">Soundtrack</label>
+										<div class="controls">
+											<!-- Soundtrack -->
+											<input type="radio" name="soundtrack" id="sound1" value="1"> 1
+											<input type="radio" name="soundtrack" id="sound2" value="2"> 2
+											<input type="radio" name="soundtrack" id="sound3" value="3"> 3
+											<input type="radio" name="soundtrack" id="sound4" value="4"> 4
+											<input type="radio" name="soundtrack" id="sound5" value="5"> 5
+											<input type="radio" name="soundtrack" id="sound6" value="6"> 6
+											<input type="radio" name="soundtrack" id="sound7" value="7"> 7
+											<input type="radio" name="soundtrack" id="sound8" value="8"> 8
+											<input type="radio" name="soundtrack" id="sound9" value="9"> 9
+											<input type="radio" name="soundtrack" id="sound10" value="10"> 10
+										</div>
+									</div>
+								</fieldset>
+								<fieldset>
+									<div class="form-check">
+									<label for="description" class="form-check-label">How was your overall experience?</label>
+									<div class="controls">
+										<textarea name="description" id="description" cols="50" rows="5" placeholder="Tell us about what you liked or didn't like"></textarea>
+									</div>
+									<button class="btn btn-lg btn-success" type="submit">Submit Review</button>
+									</div>
+								</fieldset>
+							</form>
 						</div>
 					</div>
 				</div>
-		
+			</div>
+		</div>
 
 
 
 
-		</div><!--   end container -->
-	</div> <!-- end content-main -->
+
+	</div>
+	<!--   end container -->
+</div>
+<!-- end content-main -->
