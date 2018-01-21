@@ -23,7 +23,6 @@ $("document").ready(function () {
 	var graphics;
 	var soundtrack;
 	var description;
-	var average = 0;
 
 	$("input:radio").on("click", function () {
 		//console.log(this);
@@ -52,16 +51,18 @@ $("document").ready(function () {
 			console.log('soundtrack score is ' + soundtrack);
 		}; 
 
-		average = (parseInt(gameplay) + parseInt(replayability) + parseInt(graphics) + parseInt(soundtrack))/4;
-
-		//submitForm();
+		
 	});
+
 
 		$("#review-form").on("submit", function (event) {
 			event.preventDefault();
 			var url = location.href;
+			var average = 0;
 			var gameId = url.substring(url.lastIndexOf('/') + 1);
 
+			average = (parseInt(gameplay) + parseInt(replayability) + parseInt(graphics) + parseInt(soundtrack))/4;
+			console.log(average);
 			description = $("#description").val();
 
 			$.ajax({

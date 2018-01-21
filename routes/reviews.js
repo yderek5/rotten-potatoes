@@ -31,7 +31,7 @@ router.post('/api', function(req, res) {
         game_play_rating: req.body.gameplay,
         replayability: req.body.replayability,
         soundtrack: req.body.soundtrack,
-        average: average,
+        average: req.body.average,
         gameTableId: req.body.gameId, 
         userTableEmail: "jnguye89@gmail.com",
     },).then(function(data){
