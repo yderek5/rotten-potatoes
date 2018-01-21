@@ -14,10 +14,16 @@ module.exports = function(sequelize, DataTypes){
         image_thumbnail: {
           type: DataTypes.TEXT
         }, 
+        image_original:{
+          type:DataTypes.TEXT
+        },
         external_id: {
           type: DataTypes.STRING,
           allowNull: true,
         }, 
+        original_release_date: {
+            type:DataTypes.DATE,
+        }
     }, {
         timestamps:false,
     });

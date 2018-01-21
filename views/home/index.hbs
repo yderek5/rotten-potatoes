@@ -58,7 +58,11 @@
 								<span class='badge badge-secondary'>Score</span>
 							</div>
 							<ul class='list-group game-list' id='best-games-list'>
-								
+								{{#each topTen}}
+								<li class='list-group-item game'>
+									<a href="/games/{{this.id}}">{{this.name}}</a>
+								</li>
+								{{/each}}
 							</ul>
 						</div>
 					</div>
@@ -74,25 +78,13 @@
 							<div class='card-header'>
 								Worst reviewed games!
 							</div>
-							{{!-- <div id="worst-games-list"></div> --}}
-							{{!-- <ul class='list-group game-list' id='worst-games-list'>
-								<li class='list-group-item game'>
-									<span class='badge badge-secondary'>3.5</span>
-									<a href="">bad game 1</a>
-								</li>
-								<li class='list-group-item game'>
-									<span class='badge badge-secondary'>4.3</span>
-									<a href="">bad game 2</a>
-								</li>
-								<li class='list-group-item game'>
-									<span class='badge badge-secondary'>5.2</span>
-									<a href="">bad game 3</a>
-								</li>
-								<li class='list-group-item game'>
-									<span class='badge badge-secondary'>6.2</span>
-									<a href="">bad game 4</a>
-								</li>
-							</ul> --}}
+							<ul class='list-group game-list' id='best-games-list'>
+								{{#each worstGames}}
+									<li class='list-group-item game'>
+										<a href="/games/{{this.id}}">{{this.name}}</a>
+									</li>
+								{{/each}}
+							</ul>
 						</div>
 					</div>
 				</div>
