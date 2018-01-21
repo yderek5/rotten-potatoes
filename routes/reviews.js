@@ -7,7 +7,7 @@ router.get('/', function(req, res) {
 });
 /* POST review form data */
 router.post('/api', function(req, res) {
-    res.json(req.body);
+    // THIS IS WHERE THE REVIEW FORM GOES
 });
 
 /* GET edit page */
