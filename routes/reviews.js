@@ -11,7 +11,8 @@ router.get('/', function(req, res) {
 router.post('/api', function(req, res) {
     // THIS IS WHERE THE REVIEW FORM GOES
     console.log(req.body)
-    var average = (req.body.graphics + req.body.gameplay + req.body.replayability + req.body.soundtrack)/4;
+    var average = (parseInt(req.body.graphics) + parseInt(req.body.gameplay) + parseInt(req.body.replayability) + parseInt(req.body.soundtrack))/4;
+    console.log(average);
     db.reviews_tables.create({
         comment: req.body.description,
         graphics_rating: req.body.graphics,

@@ -58,7 +58,11 @@
 								<span class='badge badge-secondary'>Score</span>
 							</div>
 							<ul class='list-group game-list' id='best-games-list'>
-								
+								{{#each topTen}}
+								<li class='list-group-item game'>
+									<a href="/games/{{this.id}}">{{this.name}}</a>
+								</li>
+								{{/each}}
 							</ul>
 						</div>
 					</div>
