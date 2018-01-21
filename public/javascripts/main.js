@@ -23,6 +23,7 @@ $("document").ready(function () {
 	var graphics;
 	var soundtrack;
 	var description;
+	var average = 0;
 
 	$("input:radio").on("click", function () {
 		//console.log(this);
@@ -49,7 +50,9 @@ $("document").ready(function () {
 			this.id == 'sound7' || this.id == 'sound8' || this.id == 'sound9' || this.id == 'sound10') {
 			soundtrack = this.value;
 			console.log('soundtrack score is ' + soundtrack);
-		}
+		}; 
+
+		average = (parseInt(gameplay) + parseInt(replayability) + parseInt(graphics) + parseInt(soundtrack))/4;
 
 		//submitForm();
 	});
@@ -70,7 +73,8 @@ $("document").ready(function () {
 					replayability: replayability,
 					graphics: graphics,
 					soundtrack: soundtrack,
-					description: description
+					description: description,
+					average: average
 				}
 			});
 		});

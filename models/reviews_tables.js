@@ -19,6 +19,9 @@ module.exports = function(sequelize, DataTypes){
         }, 
         soundtrack: {
             type: DataTypes.INTEGER
+        }, 
+        average: {
+            type:DataTypes.INTEGER
         }
     }, {
         timestamps: false,
