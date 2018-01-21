@@ -3,16 +3,28 @@ var router = express.Router();
 var db = require('../models');
 /* GET all reviews for a single game page */
 
-router.get('/', function(req, res) {
-    res.render('./reviews/index', {title: 'Reviews'});
+router.get('/:id', function(req, res) {
+    var gameId = req.params.id;
+    db.reviews_tables.findAll({
+        where: {
+            gameTableid: gameId,
+        }
+    }).then(function(data){
+        db.game_tables.findOne({
+            where: {
+                id: gameId,
+            }
+        }).then(function(childData){
+            res.render('./reviews/index', {title: 'Reviews', gameReviews:data, gameData: childData});
+        })
+        
+    })
 });
 
 /* POST review form data */
 router.post('/api', function(req, res) {
     // THIS IS WHERE THE REVIEW FORM GOES
-    console.log(req.body)
-    var average = (parseInt(req.body.graphics) + parseInt(req.body.gameplay) + parseInt(req.body.replayability) + parseInt(req.body.soundtrack))/4;
-    console.log(average);
+   
     db.reviews_tables.create({
         comment: req.body.description,
         graphics_rating: req.body.graphics,

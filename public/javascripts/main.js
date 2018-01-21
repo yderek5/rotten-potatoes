@@ -23,7 +23,7 @@ $("document").ready(function () {
 	var graphics;
 	var soundtrack;
 	var description;
-	var average;
+	var average = 0;
 
 	$("input:radio").on("click", function () {
 		//console.log(this);
@@ -52,7 +52,7 @@ $("document").ready(function () {
 			console.log('soundtrack score is ' + soundtrack);
 		}; 
 
-		average = parseInt((gameplay + replayability + graphics + soundtrack)/4);
+		average = (parseInt(gameplay) + parseInt(replayability) + parseInt(graphics) + parseInt(soundtrack))/4;
 
 		//submitForm();
 	});

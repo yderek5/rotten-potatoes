@@ -1,2 +1,21 @@
 <h1>This is the Reviews page</h1>
-<p>this could show the all reviews for a specific game</p>
+{{gameData.name}}<br>
+{{gameData.description}}<br>
+<ul>
+    {{#each gameReviews}}
+    <li class='list-group game-list'>
+        Comment<br>
+        {{this.comment}}<br>
+        Graphics Rating<br>
+        {{this.graphics_rating}}<br>
+        Game Play Rating<br>
+        {{this.game_play_rating}}<br>
+        Replayability<br>
+        {{this.replayability}}<br>
+        Soundtrack<br>
+        {{this.soundtrack}}<br>
+        Average<br>
+        {{this.average}}<br>
+    </li>
+    {{/each}}
+</ul>

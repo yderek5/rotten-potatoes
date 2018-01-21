@@ -39,8 +39,6 @@ router.get('/', function(req, res) {
   })
 });
 
-
-
 /* GET specific game info */
 router.get('/games/:id', function(req, res) {
   var gameID = req.params.id;
@@ -60,7 +58,8 @@ router.get('/games/:id', function(req, res) {
       gameTitle: data.name, 
       gameplay: averages[1],
       gameImage: data.image_thumbnail, 
-      gameDescription: data.description 
+      gameDescription: data.description, 
+      gameid: gameID,
     });
   })
 });
