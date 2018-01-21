@@ -1,26 +1,45 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../models');
+var bestGames = [];
+var worstGames = [];
+var bestGamesList
 
 /* GET home page. */
 router.get('/', function(req, res) {
   db.reviews_tables.findAll({
     order: [['average', 'DESC']]
   }).then(function(data){
-    var bestGames = getBestGames(data);
+    var bestGames = getGamesArray(data);
+    console.log(bestGames);
     db.game_tables.findAll({
       limit: 10,
       where: {
         id: bestGames,
       }
     }).then(function(childData){
-      console.log(childData);
-      res.render('./home/index', {topTen: childData});
+      bestGamesList = childData;
+      db.reviews_tables.findAll({
+        order: ['average']
+      }).then(function(childChilddata){
+        // console.log(childChilddata)
+        var worstGames = getGamesArray(childChilddata);
+        console.log(worstGames);
+        db.game_tables.findAll({
+          limit: 10,
+          where: {
+            id: worstGames,
+          }
+        }).then(function(childChildChildData){
+          // console.log(childData);
+          res.render('./home/index', {topTen: bestGamesList, worstGames: childChildChildData});
+        })
+      })
     })
-    
   })
-  
 });
+
+
 
 /* GET specific game info */
 router.get('/games/:id', function(req, res) {
@@ -101,16 +120,19 @@ var getAverage = function(table){
 }
 
 //funciton to get top ten gameIDs from the reviews table
-var getBestGames= function(data){
-  var bestGames = [];
+var getGamesArray= function(data){
+  var gamesList = [];
   var indexGame = 0;
-  for (var i = 0; i < data.length; i ++){
-    indexGame = bestGames.indexOf(data[i].dataValues.gameTableId);
+  for (var i = 0; i < data.length; i++){
+    indexGame = gamesList.indexOf(data[i].dataValues.gameTableId);
     // console.log(indexGame);
     if (indexGame = -1){
-      bestGames.push(data[i].dataValues.gameTableId);
+      gamesList.push(data[i].dataValues.gameTableId);
     }
   }
-  return bestGames;
+  var newGamesList = gamesList.slice(9);
+  console.log(newGamesList)
+  return newGamesList;
 }
+
 module.exports = router;
