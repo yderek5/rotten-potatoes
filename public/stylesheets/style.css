@@ -124,3 +124,7 @@ footer {
  .btn.btn-lg.btn-success {
   margin-top: 10px;
  }
+
+ .overall {
+   font-weight: bold;
+ }
