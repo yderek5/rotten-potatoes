@@ -14,9 +14,10 @@ router.get('/', function(req, res) {
     console.log(bestGames);
     db.game_tables.findAll({
       limit: 10,
+      order: [[db.reviews_tables, 'average']],
       where: {
         id: bestGames,
-      }
+      }, include: [db.reviews_tables]
     }).then(function(childData){
       bestGamesList = childData;
       db.reviews_tables.findAll({
@@ -27,12 +28,13 @@ router.get('/', function(req, res) {
         console.log(worstGames);
         db.game_tables.findAll({
           limit: 10,
+          order: [[db.reviews_tables, 'average', 'DESC']],
           where: {
             id: worstGames,
-          }
+          }, include: [db.reviews_tables]
         }).then(function(childChildChildData){
           // console.log(childData);
-          res.render('./home/index', {topTen: bestGamesList, worstGames: childChildChildData});
+          res.render('./home/index', {worstGames: bestGamesList, topTen: childChildChildData});
         })
       })
     })

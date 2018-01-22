@@ -60,6 +60,7 @@
 							<ul class='list-group game-list' id='best-games-list'>
 								{{#each topTen}}
 								<li class='list-group-item game'>
+									<span class='badge badge-secondary'>{{this.reviews_tables.0.average}}</span>
 									<a href="/games/{{this.id}}">{{this.name}}</a>
 								</li>
 								{{/each}}
@@ -81,6 +82,7 @@
 							<ul class='list-group game-list' id='best-games-list'>
 								{{#each worstGames}}
 									<li class='list-group-item game'>
+										<span class='badge badge-secondary'>{{this.reviews_tables.0.average}}</span>
 										<a href="/games/{{this.id}}">{{this.name}}</a>
 									</li>
 								{{/each}}
