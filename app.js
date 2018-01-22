@@ -4,6 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+//var hbsHelpers = require('./helpers/handlebars')
+var hbs = require('hbs');
 
 // These just require our controllers(controllers are = ./routes)
 var register = require('./routes/register');
@@ -17,6 +19,19 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+hbs.registerHelper('image_swap_med', function(score) { 
+  var image;
+  if (score >= 8){
+      image = "/images/rotten-potatos-status-baked-md.png"
+  }
+  else if (score >= 6){
+      image = "/images/rotten-potatos-status-fresh-md.png"
+  }
+  else {
+      image = "/images/rotten-potatos-status-rotten-md.png"
+  }
+  return image;
+ });
 
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public/images', 'favicon.ico')));
@@ -50,5 +65,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
 
 module.exports = app;
