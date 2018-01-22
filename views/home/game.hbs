@@ -1,33 +1,16 @@
 <div class='main-content'>
 	<div class='container'>
 		<div class='row'>
-			<div class='col-md-7'>
-				<div class='content-game-main'>
-					<div class='panel panel-default rp-panel'>
-						<div class='panel-heading'>
-							<div class='panel-title'>
-								<h3>{{gameTitle}}</h3>
-							</div>
-
-						</div>
-						<div class='panel-body'>
-							<img src="{{gameImage}}" alt="" id="game-main-image">
-						</div>
-						<div class='panel-body'>
-							{{gameDescription}}
-						</div>
-					</div>
-				</div>
+			<div class='col-md-7 content-game-main'>
+				<h3>{{gameTitle}}</h3>
+				<div><img src="{{gameImage}}" alt="" id="game-main-image"></div>
+				{{gameDescription}}
 			</div>
-			<div class='col-md-5'>
-				<div class='content-game-stats'>
-					<div class='panel panel-default rp-panel'>
-						<div class='panel-heading'>
-							<div class='panel-title'>
+			<div class='col-md-5 content-game-stats'>
+					<div class='card'>
+						<div class='card-header'>
 								<h4>Reviews</h4>
-							</div>
 						</div>
-						<div class='panel-body'>
 							<ul class='list-group game-stat-list'>
 								<li class='list-group-item game-stat'>
 									{{overallScore}}
@@ -53,25 +36,18 @@
 									<span class='badge'>{{soundtrack}}</span>
 								</li>
 							</ul>
-						</div>
 					</div>
-				</div>
 			</div>
 		</div>
 		<!--  end row -->
 
 
 		<div class='row'>
-			<div class='col-md-10 col-md-offset-1'>
-				<div class='content-game-review'>
-					<div class='panel panel-default rp-panel'>
-						<div class='panel-heading'>
-							<div class='panel-title'>
+			<div class='col-md-12 content-game-review'>
+					<div class='card'>
+						<div class='card-header'>
 								<h4>Review This Game!</h4>
-								<hr>
-							</div>
 						</div>
-						<div class='panel-body'>
 							<form id="review-form">
 								<fieldset>
 									<div class="form-check">
@@ -155,9 +131,7 @@
 									</div>
 								</fieldset>
 							</form>
-						</div>
 					</div>
-				</div>
 			</div>
 		</div>
 

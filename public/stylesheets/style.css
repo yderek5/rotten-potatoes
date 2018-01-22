@@ -20,8 +20,9 @@ a {
 }
 
 .card {
-  margin-top: 20px;
+  margin-top: 30px;
 }
+
 
 h3 {
   font-size: 30px;
@@ -99,3 +100,27 @@ footer {
 .control-label {
   font-weight: bold;
 }
+
+#game-main-image {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  box-shadow: 5px 5px 10px #5a5646;
+}
+ h4 {
+   margin-bottom: 0px;
+ }
+
+ #review-form {
+   margin-top: 20px;
+   margin-bottom: 20px;
+ }
+
+ .form-check-label {
+   margin-top: 10px;
+   margin-bottom: 4px;
+   font-weight: bold;
+ }
+
+ .btn.btn-lg.btn-success {
+  margin-top: 10px;
+ }
