@@ -1,6 +1,7 @@
-<h1>this is the {{title}} page</h1>
+<h3>Browse All Games>></h3>
+<p>Click on game titles below to view details.</p>
 
-<table>
+<table id="gamelist">
     <tr>
         <th>Image</th>
         <th>Game Name</th>
@@ -8,7 +9,7 @@
     </tr>
     {{#each gamesList}}
     <tr>
-        <td><img src="{{this.image_thumbnail}}"></td>
+        <td><img class = "list_thumb" src="{{this.image_thumbnail}}"></td>
         <td><a href="/games/{{this.id}}">{{this.name}}</a></td>
         <td>{{this.description}}</td>
     </tr>

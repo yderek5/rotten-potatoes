@@ -20,13 +20,16 @@ a {
 }
 
 .card {
-  margin-top: 20px;
+  margin-top: 30px;
 }
+
 
 h3 {
   font-size: 30px;
   margin-top: 6px;
   margin-bottom: 6px;
+  font-family: 'Share Tech Mono', monospace;
+  color: #5a5646;
 }
 
 .carousel {
@@ -51,3 +54,73 @@ footer {
   text-shadow: 1px 1px 20px #000;
   font-family: 'Share Tech Mono', monospace;
 }
+
+#gamelist {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#gamelist td, #gamelist th {
+  border: 2px solid #5a5646;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+#gamelist tr:nth-child(even){background-color: #d5dfd0;}
+
+/* #gamelist tr:hover {background-color: #ddd;} */
+
+#gamelist th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #5a5646;
+  color: white;
+}
+
+.navbar {
+  background-color: #d5dfd0;
+  border-bottom: 6px solid #5a5646;
+}
+
+.list_thumb {
+  max-width: 80px;
+}
+
+.form-horizontal {
+  margin-top: 20px;
+}
+
+.help-block {
+  color: #5a5646;
+  margin-bottom: 20px;
+}
+
+.control-label {
+  font-weight: bold;
+}
+
+#game-main-image {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  box-shadow: 5px 5px 10px #5a5646;
+}
+ h4 {
+   margin-bottom: 0px;
+ }
+
+ #review-form {
+   margin-top: 20px;
+   margin-bottom: 20px;
+ }
+
+ .form-check-label {
+   margin-top: 10px;
+   margin-bottom: 4px;
+   font-weight: bold;
+ }
+
+ .btn.btn-lg.btn-success {
+  margin-top: 10px;
+ }
