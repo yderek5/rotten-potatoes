@@ -33,6 +33,21 @@ hbs.registerHelper('image_swap_med', function(score) {
   return image;
  });
 
+ hbs.registerHelper('image_swap_sm', function(score) { 
+  var image;
+  if (score >= 8){
+      image = "/images/rotten-potatos-status-baked-sm.png"
+  }
+  else if (score >= 6){
+      image = "/images/rotten-potatos-status-fresh-sm.png"
+  }
+  else {
+      image = "/images/rotten-potatos-status-rotten-sm.png"
+  }
+  return image;
+ });
+
+
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public/images', 'favicon.ico')));
 app.use(logger('dev'));

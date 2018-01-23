@@ -1,44 +1,27 @@
+{{#each games}}
 
-
-<div class='container'>
-	<div class='gameList'>
-		
-		<ol class='list-group game-list' id='best-games-list'>
-
-		{{#each games}}
-
-			<li class='list-group-item game-search-result'>
-
-				<div class='panel panel-default rp-panel'>
-					<div class='panel-heading'>
-						<div class='panel-title'>
-							<h3>
-								{{this.name}}
-							</h3>
-						</div>
-					</div>
-					<div class='panel-body'>
-						<ul>
-							<li>
-								<img src="{{this.image_thumbnail}}" alt="Game Thumbnail">
-							</li>
-							<li>
-								Original Release Date: {{this.original_release_date}}
-							</li>
-							<li>
-								Platforms: {{this.platforms}}
-							</li>
-							
-						</ul>
-					</div>
-				</div>
-			</li>
-		
-		{{/each}}
-		
-		</ol>
-
+	<div class='card'>
+		<div class='card-header'>
+				<h4>
+					{{this.name}}
+				</h4>
+		</div>
+			<ul class = "list-group list-group-flush">
+				<li class = "list-group-item">
+					<img src="{{this.image_thumbnail}}" alt="Game Thumbnail">
+				</li>
+				<li class = "list-group-item">
+					Original Release Date: {{this.original_release_date}}
+				</li>
+				<li class = "list-group-item">
+					Platforms: {{this.platforms}}
+				</li>
+				
+			</ul>
 	</div>
-</div>
+{{/each}}
+		
+
+
 
 

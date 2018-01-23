@@ -3,12 +3,16 @@ body {
   background-color: #bbc5b6;
 }
 
+.container {
+  background-color: #d5dfd0;
+}
+
 a {
   color: #5a5646;
 }
 
 .navbar-brand {
-  height: 78px;
+  height: 70px;
   padding: 0px;
 }
 
@@ -34,7 +38,7 @@ h3 {
 
 .carousel {
   width: 100%;
-  height: 300px;
+  height: 320px;
   overflow: hidden;
 }
 
@@ -44,10 +48,12 @@ footer {
   padding: 20px;
   margin-top: 20px;
   color: #fff;
+  width:100%;
+  margin-right: -20px;
 }
 
 .carousel-inner .carousel-item {
-  height: 300px;  /* add this */
+  height: 320px;  /* add this */
 }
 
 .carousel-inner .carousel-item .carousel-caption {
@@ -123,4 +129,8 @@ footer {
 
  .btn.btn-lg.btn-success {
   margin-top: 10px;
+ }
+
+ .overall {
+   font-weight: bold;
  }
