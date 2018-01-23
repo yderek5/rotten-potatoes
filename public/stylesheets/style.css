@@ -3,6 +3,10 @@ body {
   background-color: #bbc5b6;
 }
 
+.container {
+  background-color: #d5dfd0;
+}
+
 a {
   color: #5a5646;
 }
@@ -45,6 +49,7 @@ footer {
   margin-top: 20px;
   color: #fff;
   width:100%;
+  margin-right: -20px;
 }
 
 .carousel-inner .carousel-item {
