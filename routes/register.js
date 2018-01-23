@@ -1,13 +1,25 @@
-var express = require('express');
-var router = express.Router();
+module.exports = function(app,passport){
 
-/* GET register page. */
-router.get('/', function(req, res) {
-    res.render('./register/register');
-});
+	var express = require('express');
+	var router = express.Router();
 
-router.post('/api', function(req, res) {
-    res.json(req.body);
-});
+	/* GET register page. */
+	router.get('/', function(req, res) {
+	    res.render('./register/register');
+	});
 
-module.exports = router;
+	/*AUTHENTICATE REGISTRATION*/
+ 	router.post('/',
+ 		passport.authenticate('local-register', 
+	 			{
+		        	successRedirect: '/',
+		 
+		        	failureRedirect: '/register'
+	    		}
+ 			) 
+ 	)
+
+return router;
+
+}
+

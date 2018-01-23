@@ -1,9 +1,27 @@
-var express = require('express');
-var router = express.Router();
+	
+module.exports = function(app,passport){
 
-/* GET login page. */
-router.get('/', function(req, res) {
-    res.render('./login/login', { title: 'Login'});
-});
+	var express = require('express');
+	var router = express.Router();
 
-module.exports = router;
+	
+	/* LOGIN form */
+ 	router.get('/', function(req, res) {
+    	res.render('./login/login',{message: req.flash('message').toString()});
+	});
+
+	/* AUTHENTICATE LOGIN */
+ 	router.post('/',passport.authenticate('local-login',
+	 		{
+	 			successRedirect: '/',
+	 			failureRedirect: '/login',
+	 			failureFlash: true
+
+	 		}
+ 		)
+ 	)
+
+
+return router;
+
+}

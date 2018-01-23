@@ -7,14 +7,15 @@ var bodyParser = require('body-parser');
 //var hbsHelpers = require('./helpers/handlebars')
 var hbs = require('hbs');
 
-// These just require our controllers(controllers are = ./routes)
-var register = require('./routes/register');
-var login = require('./routes/login');
-var index = require('./routes/index');
-var users = require('./routes/users');
-var reviews = require('./routes/reviews');
+
 
 var app = express();
+var passport = require('passport');
+var session = require('express-session');
+var env = require('dotenv').load();
+var flash = require('express-flash');
+var hbs = require('hbs');
+hbs.registerPartials(__dirname + '/views/partials');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -55,6 +56,26 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+//for passport
+app.use(session({secret: 'keyboard cat',resave:true,saveUninitialized:true}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+
+//load passport strategies
+var models = require('./models');
+require('./config/passport/passport.js')(passport,models.user);
+//var routes = require('./routes/auth.js')(app,passport);
+//app.use('/', routes);
+
+
+// These just require our controllers(controllers are = ./routes)
+var register = require('./routes/register')(app,passport);
+var login = require('./routes/login')(app,passport);
+var index = require('./routes/index')(app,passport);
+var users = require('./routes/users')(app,passport);
+var reviews = require('./routes/reviews')(app,passport);
 
 // These are the URL endpoints
 app.use('/register', register);

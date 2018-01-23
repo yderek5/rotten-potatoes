@@ -1,14 +1,19 @@
-var express = require('express');
-var router = express.Router();
+module.exports = function(app,passport){
 
-/* GET users profile page */
-router.get('/:username', function(req, res) {
-  res.render('./users/show', {title: 'show'});
-});
+	var express = require('express');
+	var router = express.Router();
 
-/* GET user edit page */
-router.get('/:username/edit', function(req, res) {
-  res.render('./users/edit', {title: 'edit'});
-});
+	/* GET users profile page */
+	router.get('/:username', function(req, res) {
+	  res.render('./users/show', {title: 'show'});
+	});
 
-module.exports = router;
+	/* GET user edit page */
+	router.get('/:username/edit', function(req, res) {
+	  res.render('./users/edit', {title: 'edit'});
+	});
+
+
+return router;
+
+}
