@@ -80,7 +80,4 @@ $("document").ready(function () {
 			});
 		});
 // ===========================================================================
-
-
-
 }); // end of document ready no code below here

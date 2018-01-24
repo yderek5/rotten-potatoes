@@ -1,14 +1,32 @@
+    {{#if loggedin}}
+      {{> header_loggedin}}
+     {{else}}
+      {{> header}}
+     {{/if}}
+
+
+
+
 <div class="container">
   <h3>Register on Rotten Potatoes>></h3>
   <p>Submitting the form below will allow you to review games and add missing games.</p>
-<form class="form-horizontal" action="/register/api" method="POST" id="register">
+<form class="form-horizontal" action="/register" method="POST" id="register">
   <fieldset>
     <div class="control-group">
-      <!-- Username -->
-      <label class="control-label"  for="username">Username</label>
+      <!-- First Name -->
+      <label class="control-label"  for="firstname">First Name</label>
       <div class="controls">
-        <input type="text" id="username" name="username" placeholder="" class="form-control">
-        <small class="form-text help-block">Username can contain any letters, numbers, or characters without spaces.</small>
+        <input type="text" id="firstname" name="firstname" placeholder="" class="form-control">
+        <small class="form-text help-block">First name help text.</small>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- Last Name -->
+      <label class="control-label"  for="lastname">Last Name</label>
+      <div class="controls">
+        <input type="text" id="lastname" name="lastname" placeholder="" class="form-control">
+        <small class="form-text help-block">Last name help text.</small>
       </div>
     </div>
  
