@@ -40,10 +40,10 @@ module.exports = function(sequelize, DataTypes){
     });
 
     //ADD ASSOCIATION BACK IN LATER, SYNTAX TO FIX.  LMG 1/20
-    // User.associate = function(models){
-    //     User.hasMany(models.reviews_tables,{
-    //         onDelete: "cascade"
-    //     });
-    // }
+    User.associate = function(models){
+        User.hasMany(models.reviews_tables,{
+            onDelete: "cascade"
+        });
+    }
     return User;
 }

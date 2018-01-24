@@ -8,6 +8,7 @@ module.exports = function(app,passport){
     router.get('/:id', function(req, res) {
         var gameId = req.params.id;
         db.reviews_tables.findAll({
+            order: [['id', 'DESC']],
             where: {
                 gameTableid: gameId,
             }
@@ -33,6 +34,12 @@ module.exports = function(app,passport){
     router.post('/api', function(req, res) {
         // THIS IS WHERE THE REVIEW FORM GOES
        
+        var firstname = '';
+        if(req.user){
+          firstname = req.user.firstname;
+        }
+
+        
         db.reviews_tables.create({
             comment: req.body.description,
             graphics_rating: req.body.graphics,
@@ -41,9 +48,7 @@ module.exports = function(app,passport){
             soundtrack: req.body.soundtrack,
             average: req.body.average,
             gameTableId: req.body.gameId, 
-            userTableEmail: "jnguye89@gmail.com",
-        },).then(function(data){
-            res.json(data);
+            userId: req.user.id
         })
     });
 
@@ -54,4 +59,29 @@ module.exports = function(app,passport){
 
 return router;
 
+}
+
+
+var getAverage = function(table){
+    var total_average = 0;
+
+    for (i = 0; i < table.length; i ++){
+      var current_average = parseInt(table[i].dataValues.average);
+      total_average += current_average;
+    }
+
+    var avg_average = total_average/table.length
+
+    return avg_average;
+  }
+
+var checkGameExists = function(gameId){
+    return db.average_table.count({
+        where: {id: gameId}
+    }).then(function(data){
+        if (count != 0){
+            return false;
+        }
+        return true;
+    })
 }
