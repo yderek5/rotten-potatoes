@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var db = require('../models');
 var nodemailer = require('nodemailer');
+var bCrypt = require('bcrypt-nodejs');
 var emailAddress;
 
 router.route('/')
@@ -55,8 +56,11 @@ router.route('/new')
 
     .post(function(req, res) {
         if(req.body.newPass === req.body.confirmPass) {
+            var generateHash = function(password) {
+				return bCrypt.hashSync(password, bCrypt.genSaltSync(8),null)
+            }
             db.user_table.update({
-                password: req.body.newPass
+                password: generateHash(req.body.newPass)
             }, {
                 where: {
                     email: emailAddress
