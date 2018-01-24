@@ -22,7 +22,7 @@ module.exports = function(sequelize, DataTypes){
           allowNull: true,
         }, 
         original_release_date: {
-            type:DataTypes.DATE,
+            type:DataTypes.DATEONLY,
         }
     }, {
         timestamps:false,
