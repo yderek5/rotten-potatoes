@@ -37,7 +37,7 @@ module.exports = function(sequelize, DataTypes){
     };
 
     reviews_tables.associate = function(models){
-        reviews_tables.belongsTo(models.user_table, {
+        reviews_tables.belongsTo(models.user, {
             // as: 'usersID',
             foreignKey: {
                 allowNull: false
