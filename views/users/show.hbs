@@ -1,2 +1,13 @@
-<h1>{{title}}</h1>
-<p>This is where you would {{title}} a single user profile</p>
+
+  	 {{#if loggedin}}
+    	{{> header_loggedin}}
+  	 {{else}}
+    	{{> header}}
+  	 {{/if}}
+
+
+
+
+<h1>{{user.email}}</h1>
+<h1>{{user.firstname}}</h1>
+<h1>{{user.lastname}}</h1>

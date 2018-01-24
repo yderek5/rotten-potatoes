@@ -109,7 +109,7 @@ module.exports = function(app,passport){
 
   /* DISPLAY ACCOUNT DETAILS */
   router.get('/account',function(req, res) {
-      res.render('./users/show',{user:req.user, loggedin:req.isAuthenticated()});
+      res.render('./users/show',{user:req.user, loggedin:req.isAuthenticated(), firstname:req.user.firstname});
   });
 
   /* LOGOUT */

@@ -3,7 +3,7 @@ var bCrypt = require('bcrypt-nodejs');
 module.exports = function(passport,user) {
 	var User = user;
 	var LocalStrategy = require('passport-local').Strategy;
-	console.log('log from inside passport js');
+	
 	passport.use('local-register', new LocalStrategy(
 		{
 			usernameField: 'email',
@@ -14,7 +14,7 @@ module.exports = function(passport,user) {
 			var generateHash = function(password) {
 				return bCrypt.hashSync(password, bCrypt.genSaltSync(8),null)
 			}
-			console.log('log from inside passport js callback');
+			
 			User.findOne({
 
 				where: {
@@ -23,7 +23,7 @@ module.exports = function(passport,user) {
 			}).then(function(user){
 				if(user){
 					return done(null,false, {
-						message: 'That email is already taken'
+						message: req.flash('message','That email is already taken')
 					})
 				} else
 				{
@@ -68,14 +68,14 @@ module.exports = function(passport,user) {
 			}).then(function(user){
 				if(!user){
 					return done(null, false, {
-						message: 'Email does not exist'
+						message: req.flash('message','Email does not exist')
 					});
 				}
 
 				if( !isValidPassword(user.password,password)) {
-					return done(null, false,
-						req.flash('message','Invalid Password')
-					)
+					return done(null, false,{
+						message: req.flash('message','Invalid Password')
+					})
 				}
 
 				var userinfo = user.get();
@@ -83,7 +83,7 @@ module.exports = function(passport,user) {
 			}).catch(function(err) {
 				console.log("Error:", err);
 				return done (null, false, {
-					message: 'Something went wrong with your Login'
+					message: req.flash('message','Something went wrong with your Login')
 				});
 			});
 		}
