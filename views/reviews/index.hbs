@@ -1,32 +1,33 @@
+<h3>Individual reviews for {{gameData.name}}>></h3><br>
 
-{{#if loggedin}}
-    {{> header_loggedin}}
-{{else}}
-    {{> header}}
-{{/if}}
+<h5>Game Description:</h5>{{gameData.description}}<br><br>
 
+{{#each gameReviews}}
+    <div class = "row">
+        <div class = "col-md-6">
+            <div class="card">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Comment</li>
+                <li class="list-group-item">{{this.comment}}</li>
+            </ul>
+            </div>
+        </div>
+        <div class = "col-md-6">
+            <div class="card">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Graphics Rating</li>
+                <li class="list-group-item">{{this.graphics_rating}}</li>
+                <li class="list-group-item">Game Play Rating</li>
+                <li class="list-group-item">{{this.game_play_rating}}</li>
+                <li class="list-group-item">Replayability</li>
+                <li class="list-group-item">{{this.replayability}}</li>
+                <li class="list-group-item">Soundtrack</li>
+                <li class="list-group-item">{{this.soundtrack}}</li>
+                <li class="list-group-item">Average</li>
+                <li class="list-group-item">{{this.average}}</li>
+            </ul>
+            </div>
+        </div>
+    </div>
+{{/each}}
 
-
-
-
-<h1>This is the Reviews page</h1>
-{{gameData.name}}<br>
-{{gameData.description}}<br>
-<ul>
-    {{#each gameReviews}}
-    <li class='list-group game-list'>
-        Comment<br>
-        {{this.comment}}<br>
-        Graphics Rating<br>
-        {{this.graphics_rating}}<br>
-        Game Play Rating<br>
-        {{this.game_play_rating}}<br>
-        Replayability<br>
-        {{this.replayability}}<br>
-        Soundtrack<br>
-        {{this.soundtrack}}<br>
-        Average<br>
-        {{this.average}}<br>
-    </li>
-    {{/each}}
-</ul>
