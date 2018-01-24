@@ -18,6 +18,8 @@ hbs.registerPartials(__dirname + '/views/partials');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+// Custom HBS Helper to swap medium rating logo
 hbs.registerHelper('image_swap_med', function(score) { 
   var image;
   if (score >= 8){
@@ -32,6 +34,7 @@ hbs.registerHelper('image_swap_med', function(score) {
   return image;
  });
 
+ // Custom HBS Helper to swap small rating logo
  hbs.registerHelper('image_swap_sm', function(score) { 
   var image;
   if (score >= 8){
@@ -45,6 +48,30 @@ hbs.registerHelper('image_swap_med', function(score) {
   }
   return image;
  });
+
+ // Custom HBS Helper to remove scores that are NaN
+ hbs.registerHelper('replace_nan', function(score) { 
+  var replaceText;
+  if (isNaN(score)){
+      replaceText = "No reviews yet for this title.";
+  }
+  else {
+    replaceText = score;
+  }
+  return replaceText;
+ });
+
+  // Custom HBS Helper to change review link based on whether game is reviewed
+  hbs.registerHelper('link_nan', function(id, score) { 
+    var replaceLink;
+    if (isNaN(score)){
+        replaceLink = "<h7>Be the first to review this game below!</h7>";
+    }
+    else {
+      replaceLink = "<a class ='btn btn-success btn-sm' href ='/reviews/" + id + "' role = 'button'>View individual reviews for this game!</a>";
+    }
+    return new hbs.SafeString(replaceLink);
+   });
 
 
 // uncomment after placing your favicon in /public
