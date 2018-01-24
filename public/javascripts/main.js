@@ -77,6 +77,8 @@ $("document").ready(function () {
 					description: description,
 					average: average
 				}
+			}).then(function() {
+				location.href = "/reviews" + "/" + gameId;
 			});
 		});
 // ===========================================================================
