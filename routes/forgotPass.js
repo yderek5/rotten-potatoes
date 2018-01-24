@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var db = require('../models');
 var nodemailer = require('nodemailer');
+var bCrypt = require('bcrypt-nodejs');
 var emailAddress;
 
 router.route('/')
@@ -11,29 +12,27 @@ router.route('/')
 
     .post(function(req, res) {
         emailAddress = req.body.email;
-        db.user_table.findOne({
+        db.user.findOne({
             where: {
                 email: emailAddress
             }
         }).then(function(data) {
             if(!data) {
-                res.send("Sorry... Email you entered does not exist" + 
-                '<br>' + 
-                '<a href="/forgot">Return to forgot password page</a>');
+                // FLASH MESSAGE HERE
             } else {
                 var transporter = nodemailer.createTransport({
                     service: 'yahoo',
                     auth: {
                         user: 'EXAMPLE@EXAMPLE.COM',
-                        pass: 'EMAIL PASSWORD HERE',
+                        pass: 'PASSWORD',
                     }
                 });
                 var mailOptions = {
                     from: 'EXAMPLE@EXAMPLE.COM',
                     to: data.email,
-                    subject: 'forgot password',
+                    subject: 'Forgot Password',
                     html: '<p>Go here to reset password<p>' +
-                    '<br>' + '<a href="http://localhost:3000/forgot/new"><p>Rotten potatoes</p></a>'
+                    '<br>' + '<a href="http://localhost:3000/forgot/new"><p>Rotten Potatoes reset password</p></a>'
                 };
                 transporter.sendMail(mailOptions, function(error, info) {
                     if(error) {
@@ -55,8 +54,11 @@ router.route('/new')
 
     .post(function(req, res) {
         if(req.body.newPass === req.body.confirmPass) {
-            db.user_table.update({
-                password: req.body.newPass
+            var generateHash = function(password) {
+				return bCrypt.hashSync(password, bCrypt.genSaltSync(8),null)
+            }
+            db.user.update({
+                password: generateHash(req.body.newPass)
             }, {
                 where: {
                     email: emailAddress
@@ -64,10 +66,10 @@ router.route('/new')
             }).then(function(error, info) {
                 if(error) {
                     console.log(error);
-                    res.json(error);
+                    // flash error here? password not updated or something
                 } else {
                     console.log("Password Updated:" + info.response);
-                    res.render('./login/login');
+                    res.redirect('/login');
                 }
             });
         } else {

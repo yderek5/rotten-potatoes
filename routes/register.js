@@ -5,7 +5,7 @@ module.exports = function(app,passport){
 
 	/* GET register page. */
 	router.get('/', function(req, res) {
-	    res.render('./register/register');
+	    res.render('./register/register',{message: req.flash('message').toString()});
 	});
 
 	/*AUTHENTICATE REGISTRATION*/
@@ -14,7 +14,8 @@ module.exports = function(app,passport){
 	 			{
 		        	successRedirect: '/',
 		 
-		        	failureRedirect: '/register'
+		        	failureRedirect: '/register',
+		        	failureFlash: true
 	    		}
  			) 
  	)
