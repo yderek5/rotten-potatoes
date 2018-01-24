@@ -25,24 +25,27 @@
 									<img src = "{{image_swap_med overallScore}}">
 								</li>
 								<li class='list-group-item game-stat overall'>
-									<a href="/reviews/{{gameid}}">Overall Score</a>
-									<span class="badge badge-secondary">{{overallScore}}</span>
+									Overall Score&nbsp;&nbsp;
+									<span class="badge badge-secondary">{{replace_nan overallScore}}</span>
 								</li>
 								<li class='list-group-item game-stat'>
-									<a href="/reviews/{{gameid}}">Game Play</a>
-									<span class="badge badge-secondary">{{gameplay}}</span>
+									Game Play&nbsp;&nbsp;
+									<span class="badge badge-secondary">{{replace_nan gameplay}}</span>
 								</li>
 								<li class='list-group-item game-stat'>
-									<a href="/reviews/{{gameid}}">Replayability</a>
-									<span class='badge badge-secondary'>{{replayability}}</span>
+									Replayability&nbsp;&nbsp;
+									<span class='badge badge-secondary'>{{replace_nan replayability}}</span>
 								</li>
 								<li class='list-group-item game-stat'>
-									<a href="/reviews/{{gameid}}">Graphics</a>
-									<span class='badge badge-secondary'>{{graphics}}</span>
+									Graphics&nbsp;&nbsp;
+									<span class='badge badge-secondary'>{{replace_nan graphics}}</span>
 								</li>
 								<li class='list-group-item game-stat'>
-									<a href="/reviews/{{gameid}}">Soundtrack</a>
-									<span class='badge badge-secondary'>{{soundtrack}}</span>
+									Soundtrack&nbsp;&nbsp;
+									<span class='badge badge-secondary'>{{replace_nan soundtrack}}</span>
+								</li>
+								<li class='list-group-item game-stat'>
+									{{link_nan gameid overallScore}}
 								</li>
 							</ul>
 					</div>
