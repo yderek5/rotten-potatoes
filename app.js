@@ -7,8 +7,6 @@ var bodyParser = require('body-parser');
 //var hbsHelpers = require('./helpers/handlebars')
 var hbs = require('hbs');
 
-
-
 var app = express();
 var passport = require('passport');
 var session = require('express-session');
@@ -76,6 +74,7 @@ var login = require('./routes/login')(app,passport);
 var index = require('./routes/index')(app,passport);
 var users = require('./routes/users')(app,passport);
 var reviews = require('./routes/reviews')(app,passport);
+var forgot = require('./routes/forgotPass');
 
 // These are the URL endpoints
 app.use('/register', register);
@@ -83,6 +82,7 @@ app.use('/login', login);
 app.use('/', index);
 app.use('/users', users);
 app.use('/reviews', reviews);
+app.use('/forgot', forgot);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
