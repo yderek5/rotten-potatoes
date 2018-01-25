@@ -12,7 +12,7 @@ module.exports = function(app,passport){
   /* GET home page. */
   router.get('/', function(req, res) {
 
-    db.game_tables.findAll({
+    db.average_table.findAll({
       limit: 10,
       order: [['original_release_date', 'DESC']]
     }).then(function(data){
