@@ -7,7 +7,7 @@ var emailAddress;
 
 router.route('/')
     .get(function(req, res) {
-        res.render('./login/forgot-password');
+        res.render('./login/forgot-password', {notify: req.flash('notify')});
     })
 
     .post(function(req, res) {
@@ -18,7 +18,8 @@ router.route('/')
             }
         }).then(function(data) {
             if(!data) {
-                // FLASH MESSAGE HERE
+                req.flash('notify','This email does not exist. Please register an account');
+                res.redirect('/forgot');
             } else {
                 var transporter = nodemailer.createTransport({
                     service: 'yahoo',
