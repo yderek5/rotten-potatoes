@@ -76,9 +76,10 @@ $("document").ready(function () {
 					soundtrack: soundtrack,
 					description: description,
 					average: average
-				}
+				},
+				success: location.href = '/reviews' + '/' + gameId
 			}).then(function() {
-				location.href = "/reviews" + "/" + gameId;
+				setTimeout(location.reload(), 3000);
 			});
 		});
 

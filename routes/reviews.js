@@ -7,13 +7,14 @@ module.exports = function(app,passport){
 
     router.get('/:id', function(req, res) {
         var gameId = req.params.id;
+        var average = 0;
         db.reviews_tables.findAll({
             order: [['id', 'DESC']],
             where: {
                 gameTableid: gameId,
-            }
+            }, include: [db.user]
         }).then(function(data){
-
+            average = getAverage(data)
             var firstname = '';
             if(req.user){
               firstname = req.user.firstname;
@@ -24,6 +25,12 @@ module.exports = function(app,passport){
                     id: gameId,
                 }
             }).then(function(childData){
+                //pushes to the average table of all games
+                db.average_table.create({
+                    gameId: gameId, 
+                    average: average, 
+                    gameName: childData.name
+                })
                 res.render('./reviews/index', {title: 'Reviews', gameReviews:data, gameData: childData, loggedin: req.isAuthenticated(),firstname: firstname});
             })
             

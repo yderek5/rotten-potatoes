@@ -34,9 +34,6 @@ module.exports = function(sequelize, DataTypes){
                 allowNull: false
               }
         });
-    };
-
-    reviews_tables.associate = function(models){
         reviews_tables.belongsTo(models.user, {
             // as: 'usersID',
             foreignKey: {
@@ -44,6 +41,7 @@ module.exports = function(sequelize, DataTypes){
               }
         });
     };
+
     
     return reviews_tables
 }

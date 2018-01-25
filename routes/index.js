@@ -11,45 +11,44 @@ module.exports = function(app,passport){
 
   /* GET home page. */
   router.get('/', function(req, res) {
-    db.reviews_tables.findAll({
-      order: [['average', 'DESC']]
+
+    db.game_tables.findAll({
+      limit: 10,
+      order: [['original_release_date', 'DESC']]
     }).then(function(data){
-      var bestGames = getGamesArray(data);
-      //console.log(bestGames);
-      db.game_tables.findAll({
-        limit: 10,
-        order: [[db.reviews_tables, 'average']],
-        where: {
-          id: bestGames,
-        }, include: [db.reviews_tables]
+      db.average_table.findAll({
+        order: [['average']]
       }).then(function(childData){
-        bestGamesList = childData;
-        db.reviews_tables.findAll({
-          order: ['average']
-        }).then(function(childChilddata){
-          // console.log(childChilddata)
-          var worstGames = getGamesArray(childChilddata);
-          //console.log(worstGames);
-          db.game_tables.findAll({
-            limit: 10,
-            order: [[db.reviews_tables, 'average', 'DESC']],
-            where: {
-              id: worstGames,
-            }, include: [db.reviews_tables]
-          }).then(function(childChildChildData){
-            // console.log(childData);
+        var worstTable = getSortedTable(childData);
+        var bestTable = getSortedTable(childData.reverse());
 
-            var firstname = '';
-            if(req.user){
-              firstname = req.user.firstname;
-            }
+        var firstname = '';
+        if(req.user){
+          firstname = req.user.firstname;
+        }
 
-            res.render('./home/index', {worstGames: bestGamesList, topTen: childChildChildData, loggedin: req.isAuthenticated(),firstname: firstname});
+        res.render('./home/index', {topTen: bestTable, worstGames: worstTable, newGames: data, loggedin: req.isAuthenticated(),firstname: firstname});
 
-          })
-        })
       })
+      
     })
+
+    //function to get the list of best and worst games
+    var getSortedTable = function(data){
+      var tableGameId = [];
+      var table = [];
+
+      for (i = 0; i < data.length; i++){
+        var dataExists = tableGameId.indexOf(data[i].dataValues.gameId);
+        if (dataExists === -1){
+          if (table.length < 10){
+            table.push({gameId: data[i].dataValues.gameId, gameName: data[i].dataValues.gameName, average: data[i].dataValues.average})
+            tableGameId.push(data[i].dataValues.gameId);
+          }
+        }
+      };
+      return table;
+    }
   });
 
   /* GET specific game info */
@@ -123,7 +122,19 @@ module.exports = function(app,passport){
 
   /* DISPLAY ACCOUNT DETAILS */
   router.get('/account',function(req, res) {
-      res.render('./users/show',{user:req.user, loggedin:req.isAuthenticated(), firstname:req.user.firstname});
+
+    db.reviews_tables.findAll({
+        where: {
+            userId: req.user.id,
+        }, include: [db.game_tables],
+    }).then(function(data){
+      console.log(data)
+      var firstname = '';
+      if(req.user){
+        firstname = req.user.firstname;
+      }
+      res.render('./users/show', {user:req.user, loggedin:req.isAuthenticated(), firstname:req.user.firstname, reviewsList: data});
+    })
   });
 
   /* LOGOUT */
