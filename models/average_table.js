@@ -2,13 +2,17 @@ module.exports = function(sequelize, DataTypes){
     var average_table = sequelize.define("average_table", {
         id: {
             type: DataTypes.INTEGER, 
+            autoIncrement: true,
             primaryKey: true,
         },
-        name: {
-            type: DataTypes.STRING,
+        gameId: {
+            type: DataTypes.INTEGER,
         }, 
-        aveage: {
-            type: DataTypes.INTEGER
+        gameName: {
+            type: DataTypes.STRING,
+        },
+        average: {
+            type: DataTypes.DECIMAL(4,2),
         }
     }, {
         timestamps:true,
