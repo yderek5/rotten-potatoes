@@ -127,8 +127,9 @@ module.exports = function(app,passport){
     db.reviews_tables.findAll({
         where: {
             userId: req.user.id,
-        }
+        }, include: [db.game_tables],
     }).then(function(data){
+      console.log(data)
       var firstname = '';
       if(req.user){
         firstname = req.user.firstname;
