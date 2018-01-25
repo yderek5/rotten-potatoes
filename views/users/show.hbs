@@ -6,22 +6,30 @@
     	{{> header}}
   	 {{/if}}
 
-{{!-- <p>test</p> --}}
 
+<h3>{{user.firstname}}, here's your account information>></h3>
+<br>
+<div class="card reviews">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><strong>First Name: </strong>{{user.firstname}}</li>
+    <li class="list-group-item"><strong>Last Name: </strong>{{user.lastname}}</li>
+    <li class="list-group-item"><strong>Email: </strong>{{user.email}}</li>
+  </ul>
+</div>
 
-<h1>{{user.email}}</h1>
-<h1>{{user.firstname}}</h1>
-<h1>{{user.lastname}}</h1>
-
-
+<br><br>
+<h3>{{user.firstname}}, here are your reviews>></h3>
 {{#each reviewsList}}
+    <div class = "card reviews">
+        <div class = "card-header">{{this.game_table.name}}</div>
 	 <ul class="list-group list-group-flush">
         <li class="list-group-item"><h7>Graphics Rating: <span class="badge badge-secondary">{{this.graphics_rating}}</span></h7></li>
         <li class="list-group-item"><h7>Game Play Rating: <span class="badge badge-secondary">{{this.game_play_rating}}</span></h7></li>
         <li class="list-group-item"><h7>Replayability: <span class="badge badge-secondary">{{this.replayability}}</span></h7></li>
         <li class="list-group-item"><h7>Soundtrack: <span class="badge badge-secondary">{{this.soundtrack}}</span></h7></li>
-        <li class="list-group-item"><h6>Overall Rating: <span class="badge badge-secondary">{{this.average}}</span></h6></li>
-        <li class="list-group-item"><h6>Overall Rating: <span class="badge badge-secondary">{{this.game_table.name}}</span></h6></li>
-        
+        <li class="list-group-item"><h6>Overall Rating: <span class="badge badge-dark">{{this.average}}</span></h6></li>        
+        <li class="list-group-item"><strong>Comment: </strong>{{this.comment}}</li>        
+
     </ul>
+    </div>
 {{/each}}
