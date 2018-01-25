@@ -82,5 +82,27 @@ $("document").ready(function () {
 				setTimeout(location.reload(), 3000);
 			});
 		});
+
+
+	// $(function(){	
+		$("#searchBox").autocomplete({
+			source: function(request,response){
+				$.ajax({
+					url: '/search/auto',
+					data:{
+						term:request.term
+					},
+					success: function(data){
+						response (data);
+					}
+				});
+
+			},
+			minLength: 2
+		});
+	// })
+
+
+
 // ===========================================================================
 }); // end of document ready no code below here
