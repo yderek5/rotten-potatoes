@@ -15,7 +15,7 @@ module.exports = function(app,passport){
       order: [['average', 'DESC']]
     }).then(function(data){
       var bestGames = getGamesArray(data);
-      console.log(bestGames);
+      //console.log(bestGames);
       db.game_tables.findAll({
         limit: 10,
         order: [[db.reviews_tables, 'average']],
@@ -29,7 +29,7 @@ module.exports = function(app,passport){
         }).then(function(childChilddata){
           // console.log(childChilddata)
           var worstGames = getGamesArray(childChilddata);
-          console.log(worstGames);
+          //console.log(worstGames);
           db.game_tables.findAll({
             limit: 10,
             order: [[db.reviews_tables, 'average', 'DESC']],
@@ -68,7 +68,7 @@ module.exports = function(app,passport){
 
 
       var averages = getAverage(data.dataValues.reviews_tables);
-      console.log(averages);
+      //console.log(averages);
       res.render('./home/game', { 
         overallScore: averages[4],
         replayability: averages[2],
@@ -88,7 +88,7 @@ module.exports = function(app,passport){
 
   /* GET list of all games we have on record */
   router.get('/games', function(req, res) {
-    console.log("get route"); //this part works
+   // console.log("get route"); //this part works
       // console.log(db.game_tables);
       var firstname = '';
       if(req.user){
@@ -102,9 +102,23 @@ module.exports = function(app,passport){
     })
   });
 
-  //route for search results, added by Leo 1.17.18
+  /*SEARCH FOR GAMES*/
+  router.get('/search', function(req,res){
+    var firstname = '';
+    if(req.user){
+      firstname = req.user.firstname;
+    }
+    db.game_tables.findAll({
+        where: {
+          name: {
+            $like: '%' + req.query.searchTerm + '%'
+          }
+        }
+      }).then(function(data){
+        res.render('./home/gameList', {title: 'game list',  gamesList: data, loggedin: req.isAuthenticated(),firstname: firstname});
+      })
 
-  router.get('/search/:filter', require('../public/javascripts/apiCall').getGames);
+  });
 
 
   /* DISPLAY ACCOUNT DETAILS */
@@ -116,6 +130,30 @@ module.exports = function(app,passport){
   router.get('/logout',function(req, res) {
       req.logout();
       res.render('./logout/logout');
+  });
+
+   /* AUTOCOMPLETE */
+  router.get('/search/auto',function(req, res) {
+     
+      var query = req.query.term;
+      console.log('Query:' + query);
+      db.game_tables.findAll({
+        where: {
+          name: {
+            $like: '%' + query + '%'
+          }
+        }
+      }).then(function(data){
+        console.log('data:' + data.length);
+        var autoCompleteOptions = [];
+        for (i=0;i < data.length;i++){
+          autoCompleteOptions.push(data[i].name);
+        }
+
+        res.send(autoCompleteOptions);
+      })
+
+
   });
 
 
