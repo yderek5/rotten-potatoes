@@ -12,7 +12,7 @@ module.exports = function(app,passport){
             order: [['id', 'DESC']],
             where: {
                 gameTableid: gameId,
-            }
+            }, include: [db.user]
         }).then(function(data){
             average = getAverage(data)
             var firstname = '';
