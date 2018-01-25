@@ -1,4 +1,4 @@
-
+{{!-- Swapping header based on whether user is looged in --}}
 {{#if loggedin}}
     	{{> header_loggedin}}
 {{else}}
@@ -6,12 +6,7 @@
 {{/if}}
 
 
-
-
-
-
 <!-- CALLING THIS 'HERO GAMES' - GAMES TO SHOWCASE -->
-
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
 <ol class="carousel-indicators">
 	<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -110,7 +105,7 @@
 				<ul class='list-group game-list' id='new-games-list'>
 					{{#each newGames}}
 						<li class='list-group-item game'>
-							<span class='small-potato'><img src = "{{image_swap_sm this.average}}"></span>
+							<span class='small-potato'><img src = "{{image_swap_sm this.reviews_tables.0.average}}"></span>
 							<a href="/games/{{this.id}}">{{this.name}}..{{this.average}}..</a>
 						</li>
 					{{/each}}

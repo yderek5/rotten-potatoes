@@ -1,12 +1,11 @@
+{{!-- Swapping header based on whether user is looged in --}}
 {{#if loggedin}}
     {{> header_loggedin}}
 {{else}}
     {{> header}}
 {{/if}}
 
-
-
-
+{{!-- Display list of all games in database --}}
 <h3>Browse All Games>></h3>
 <p>Click on game titles below to view details.</p>
 
@@ -18,8 +17,8 @@
     </tr>
     {{#each gamesList}}
     <tr>
-        <td><img class = "list_thumb" src="{{this.image_thumbnail}}"></td>
-        <td><a href="/games/{{this.id}}">{{this.name}}</a></td>
+        <td style="width:100px"><img class = "list_thumb" src="{{this.image_thumbnail}}"></td>
+        <td style="width:180px"><a href="/games/{{this.id}}">{{this.name}}</a></td>
         <td>{{this.description}}</td>
     </tr>
     {{/each}}

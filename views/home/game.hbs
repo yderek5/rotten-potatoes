@@ -1,86 +1,78 @@
-		{{#if loggedin}}
-     		 {{> header_loggedin}}
-     	{{else}}
-     		 {{> header}}
-     	{{/if}}
+{{!-- Swapping header based on whether user is looged in --}}
+{{#if loggedin}}
+		{{> header_loggedin}}
+{{else}}
+		{{> header}}
+{{/if}}
 
-
-
-
-
-
-		<div class='row'>
-			<div class='col-md-7 content-game-main'>
-				<h3>{{gameTitle}}</h3>
-				<div><img src="{{gameImage}}" alt="" id="game-main-image"></div>
-				{{gameDescription}}
+{{!-- Game information and review averages--}}
+<div class='row'>
+	<div class='col-md-7 content-game-main'>
+		<h3>{{gameTitle}}</h3>
+		<div><img width = "300" src="{{gameImage}}" alt="" id="game-main-image"></div>
+		{{gameDescription}}
+	</div>
+	<div class='col-md-5 content-game-stats'>
+			<div class='card reviews'>
+				<div class='card-header'>
+						<h4>Reviews</h4>
+				</div>
+					<ul class='list-group game-stat-list'>
+						<li class='list-group-item game-stat'>
+							<img src = "{{image_swap_med overallScore}}">
+						</li>
+						<li class='list-group-item game-stat overall'>
+							<strong>Overall Score&nbsp;&nbsp;</strong>
+							<span class="badge badge-dark">{{replace_nan overallScore}}</span>
+						</li>
+						<li class='list-group-item game-stat'>
+							Game Play&nbsp;&nbsp;
+							<span class="badge badge-secondary">{{replace_nan gameplay}}</span>
+						</li>
+						<li class='list-group-item game-stat'>
+							Replayability&nbsp;&nbsp;
+							<span class='badge badge-secondary'>{{replace_nan replayability}}</span>
+						</li>
+						<li class='list-group-item game-stat'>
+							Graphics&nbsp;&nbsp;
+							<span class='badge badge-secondary'>{{replace_nan graphics}}</span>
+						</li>
+						<li class='list-group-item game-stat'>
+							Soundtrack&nbsp;&nbsp;
+							<span class='badge badge-secondary'>{{replace_nan soundtrack}}</span>
+						</li>
+						<li class='list-group-item game-stat'>
+							{{link_nan gameid overallScore}}
+						</li>
+					</ul>
 			</div>
-			<div class='col-md-5 content-game-stats'>
-					<div class='card reviews'>
-						<div class='card-header'>
-								<h4>Reviews</h4>
-						</div>
-							<ul class='list-group game-stat-list'>
-								<li class='list-group-item game-stat'>
-									<img src = "{{image_swap_med overallScore}}">
-								</li>
-								<li class='list-group-item game-stat overall'>
-									<strong>Overall Score&nbsp;&nbsp;</strong>
-									<span class="badge badge-dark">{{replace_nan overallScore}}</span>
-								</li>
-								<li class='list-group-item game-stat'>
-									Game Play&nbsp;&nbsp;
-									<span class="badge badge-secondary">{{replace_nan gameplay}}</span>
-								</li>
-								<li class='list-group-item game-stat'>
-									Replayability&nbsp;&nbsp;
-									<span class='badge badge-secondary'>{{replace_nan replayability}}</span>
-								</li>
-								<li class='list-group-item game-stat'>
-									Graphics&nbsp;&nbsp;
-									<span class='badge badge-secondary'>{{replace_nan graphics}}</span>
-								</li>
-								<li class='list-group-item game-stat'>
-									Soundtrack&nbsp;&nbsp;
-									<span class='badge badge-secondary'>{{replace_nan soundtrack}}</span>
-								</li>
-								<li class='list-group-item game-stat'>
-									{{link_nan gameid overallScore}}
-								</li>
-							</ul>
-					</div>
-			</div>
-		</div>
-		<!--  end row -->
+	</div>
+</div>
 
+{{!-- Review form to add game review --}}
+<div class='row'>
+	<div class='col-md-12 content-game-review'>
+		<div id="accordion">
+			<div class='card reviews'>
+				<div class='card-header' id="headingOne">
+						<h4>
+							<button class="btn btn-success" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+								Review This Game!
+							</button>
+						</h4>
+				</div>
 
-		<div class='row'>
-			<div class='col-md-12 content-game-review'>
-				<div id="accordion">
-					<div class='card reviews'>
-						<div class='card-header' id="headingOne">
-								<h4>
-									<button class="btn btn-success" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          								Review This Game!
-        							</button>
-								</h4>
-						</div>
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
 
-						<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+					{{!-- Swapping content based on whether user is logged in --}}
+					{{#if loggedin}}
+						{{> review_form}}
+					{{else}}
+						{{> review_login_message}}
+					{{/if}}
 
-							{{#if loggedin}}
-								{{> review_form}}
-							{{else}}
-								{{> review_login_message}}
-							{{/if}}
-
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
-
-
-
-
-
+	</div>
+</div>

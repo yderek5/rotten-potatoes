@@ -76,8 +76,6 @@ footer {
 
 #gamelist tr:nth-child(even){background-color: #d5dfd0;}
 
-/* #gamelist tr:hover {background-color: #ddd;} */
-
 #gamelist th {
   padding-top: 12px;
   padding-bottom: 12px;

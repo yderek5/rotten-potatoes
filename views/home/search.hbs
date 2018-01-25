@@ -1,13 +1,11 @@
+{{!-- Swapping header based on whether user is looged in --}}
 {{#if loggedin}}
     {{> header_loggedin}}
 {{else}}
     {{> header}}
 {{/if}}
 
-
-
-
-
+{{!-- Display game title search results --}}
 {{#each games}}
 
 	<div class='card'>
