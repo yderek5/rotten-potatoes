@@ -5,6 +5,8 @@ body {
 
 .container {
   background-color: #d5dfd0;
+  padding-bottom: 16px;
+  padding-top: 16px;
 }
 
 a {
@@ -49,7 +51,6 @@ footer {
   margin-top: 20px;
   color: #fff;
   width:100%;
-  margin-right: -20px;
 }
 
 .carousel-inner .carousel-item {
@@ -139,7 +140,13 @@ footer {
 
  .card.reviews {
    border: 3px solid #5a5646;
+   border-radius: 8px;
  }
+
+ .card.home {
+  border: 3px solid #5a5646;
+  border-radius: 8px;
+}
 
  h7 {
   color: #5a5646;
