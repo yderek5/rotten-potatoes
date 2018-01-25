@@ -11,6 +11,9 @@ module.exports = function(sequelize, DataTypes){
         gameName: {
             type: DataTypes.STRING,
         },
+        original_release_date: {
+            type:DataTypes.DATEONLY,
+        },
         average: {
             type: DataTypes.DECIMAL(4,2),
         }
