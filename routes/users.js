@@ -5,7 +5,12 @@ module.exports = function(app,passport){
 
 	/* GET users profile page */
 	router.get('/:username', function(req, res) {
-	  res.render('./users/show', {title: 'show'});
+		
+		// var firstname = '';
+	 //      if(req.user){
+	 //        firstname = req.user.firstname;
+	 //      }
+		// console.log(req.user.id);
 	});
 
 	/* GET user edit page */

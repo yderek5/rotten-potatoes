@@ -108,22 +108,12 @@
 					New games!
 				</div>
 				<ul class='list-group game-list' id='new-games-list'>
-					<li class='list-group-item game'>
-						<span class='badge badge-secondary'>1.15.18</span>
-						<a href="">new game 1</a>
-					</li>
-					<li class='list-group-item game'>
-						<span class='badge badge-secondary'>1.18.18</span>
-						<a href="">new game 2</a>
-					</li>
-					<li class='list-group-item game'>
-						<span class='badge badge-secondary'>2.1.18</span>
-						<a href="">new game 3</a>
-					</li>
-					<li class='list-group-item game'>
-						<span class='badge badge-secondary'>3.5.18</span>
-						<a href="">new game 4</a>
-					</li>
+					{{#each newGames}}
+						<li class='list-group-item game'>
+							<span class='small-potato'><img src = "{{image_swap_sm this.reviews_tables.0.average}}"></span>
+							<a href="/games/{{this.id}}">{{this.name}}</a>
+						</li>
+					{{/each}}
 				</ul>
 			</div>
 		</div>

@@ -11,45 +11,59 @@ module.exports = function(app,passport){
 
   /* GET home page. */
   router.get('/', function(req, res) {
-    db.reviews_tables.findAll({
-      order: [['average', 'DESC']]
+
+    db.game_tables.findAll({
+      limit: 10,
+      order: [['original_release_date', 'DESC']]
     }).then(function(data){
-      var bestGames = getGamesArray(data);
-      console.log(bestGames);
-      db.game_tables.findAll({
-        limit: 10,
-        order: [[db.reviews_tables, 'average']],
-        where: {
-          id: bestGames,
-        }, include: [db.reviews_tables]
-      }).then(function(childData){
-        bestGamesList = childData;
-        db.reviews_tables.findAll({
-          order: ['average']
-        }).then(function(childChilddata){
-          // console.log(childChilddata)
-          var worstGames = getGamesArray(childChilddata);
-          console.log(worstGames);
-          db.game_tables.findAll({
-            limit: 10,
-            order: [[db.reviews_tables, 'average', 'DESC']],
-            where: {
-              id: worstGames,
-            }, include: [db.reviews_tables]
-          }).then(function(childChildChildData){
-            // console.log(childData);
+      var firstname = '';
+      if(req.user){
+        firstname = req.user.firstname;
+      }
 
-            var firstname = '';
-            if(req.user){
-              firstname = req.user.firstname;
-            }
+      res.render('./home/index', {newGames: data, loggedin: req.isAuthenticated(),firstname: firstname});
 
-            res.render('./home/index', {worstGames: bestGamesList, topTen: childChildChildData, loggedin: req.isAuthenticated(),firstname: firstname});
-
-          })
-        })
-      })
     })
+
+    // db.reviews_tables.findAll({
+    //   order: [['average', 'DESC']]
+    // }).then(function(data){
+    //   var bestGames = getGamesArray(data);
+    //   console.log(bestGames);
+    //   db.game_tables.findAll({
+    //     limit: 10,
+    //     order: [[db.reviews_tables, 'average']],
+    //     where: {
+    //       id: bestGames,
+    //     }, include: [db.reviews_tables]
+    //   }).then(function(childData){
+    //     bestGamesList = childData;
+    //     db.reviews_tables.findAll({
+    //       order: ['average']
+    //     }).then(function(childChilddata){
+    //       // console.log(childChilddata)
+    //       var worstGames = getGamesArray(childChilddata);
+    //       console.log(worstGames);
+    //       db.game_tables.findAll({
+    //         limit: 10,
+    //         order: [[db.reviews_tables, 'average', 'DESC']],
+    //         where: {
+    //           id: worstGames,
+    //         }, include: [db.reviews_tables]
+    //       }).then(function(childChildChildData){
+    //         // console.log(childData);
+
+    //         var firstname = '';
+    //         if(req.user){
+    //           firstname = req.user.firstname;
+    //         }
+
+    //         res.render('./home/index', {worstGames: bestGamesList, topTen: childChildChildData, loggedin: req.isAuthenticated(),firstname: firstname});
+
+    //       })
+    //     })
+    //   })
+    // })
   });
 
   /* GET specific game info */
@@ -109,7 +123,18 @@ module.exports = function(app,passport){
 
   /* DISPLAY ACCOUNT DETAILS */
   router.get('/account',function(req, res) {
-      res.render('./users/show',{user:req.user, loggedin:req.isAuthenticated(), firstname:req.user.firstname});
+
+    db.reviews_tables.findAll({
+        where: {
+            userId: req.user.id,
+        }
+    }).then(function(data){
+      var firstname = '';
+      if(req.user){
+        firstname = req.user.firstname;
+      }
+      res.render('./users/show', {user:req.user, loggedin:req.isAuthenticated(), firstname:req.user.firstname, reviewsList: data});
+    })
   });
 
   /* LOGOUT */
