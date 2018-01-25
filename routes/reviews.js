@@ -11,9 +11,9 @@ module.exports = function(app,passport){
             order: [['id', 'DESC']],
             where: {
                 gameTableid: gameId,
-            }
+            }, include: [db.user]
         }).then(function(data){
-
+            
             var firstname = '';
             if(req.user){
               firstname = req.user.firstname;
