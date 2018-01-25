@@ -25,6 +25,7 @@ module.exports = function(app,passport){
                     id: gameId,
                 }
             }).then(function(childData){
+                //pushes to the average table of all games
                 db.average_table.create({
                     gameId: gameId, 
                     average: average, 

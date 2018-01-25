@@ -33,6 +33,7 @@ module.exports = function(app,passport){
       
     })
 
+    //function to get the list of best and worst games
     var getSortedTable = function(data){
       var tableGameId = [];
       var table = [];
