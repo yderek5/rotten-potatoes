@@ -1,12 +1,11 @@
-     {{#if loggedin}}
-        {{> header_loggedin}}
-     {{else}}
-        {{> header}}
-     {{/if}}
+{{!-- Swap the header based on whether the user is logged in --}}
+{{#if loggedin}}
+{{> header_loggedin}}
+{{else}}
+{{> header}}
+{{/if}}
 
-
-
-
+{{!-- Form for user login --}}
 <form id="login" name="login" method="post" action="login">
         <div class = "form-group">
         <label for="email">Email Address</label>

@@ -75,7 +75,7 @@ module.exports = function(app,passport){
         soundtrack: averages[3],
         gameTitle: data.name, 
         gameplay: averages[1],
-        gameImage: data.image_thumbnail, 
+        gameImage: data.image_original, 
         gameDescription: data.description, 
         gameid: gameID,
 

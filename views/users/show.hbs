@@ -1,12 +1,11 @@
-
-
+{{!-- Swapping header based on whether user is looged in --}}
   	 {{#if loggedin}}
     	{{> header_loggedin}}
   	 {{else}}
     	{{> header}}
   	 {{/if}}
 
-
+{{!-- User account information --}}
 <h3>{{user.firstname}}, here's your account information>></h3>
 <br>
 <div class="card reviews">
@@ -18,6 +17,8 @@
 </div>
 
 <br><br>
+
+{{!-- List of games user has reviewed --}}
 <h3>{{user.firstname}}, here are your reviews>></h3>
 {{#each reviewsList}}
     <div class = "card reviews">

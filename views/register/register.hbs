@@ -1,12 +1,11 @@
-    {{#if loggedin}}
-      {{> header_loggedin}}
-     {{else}}
-      {{> header}}
-     {{/if}}
+{{!-- Swap out header based on whether user is logged in or not --}}
+{{#if loggedin}}
+{{> header_loggedin}}
+{{else}}
+{{> header}}
+{{/if}}
 
-
-
-
+{{!-- Display form for new user registration --}}
 <div class="container">
   <h3>Register on Rotten Potatoes>></h3>
   <p id="message">{{message}}</p>

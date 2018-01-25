@@ -1,10 +1,11 @@
+{{!-- Swap header based on whether the user is logged in --}}
 {{#if loggedin}}
         {{> header_loggedin}}
 {{else}}
         {{> header}}
 {{/if}}
          
-         
+{{!-- Displays indiviual reviews for games          --}}
 <h3>Individual reviews for {{gameData.name}}>></h3><br>
 
 <h6>Game Description:</h6>{{gameData.description}}<br><br>
