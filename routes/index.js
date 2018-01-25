@@ -197,11 +197,11 @@ module.exports = function(app,passport){
     var avg_average = total_average/table.length
 
     var avgTable = [];
-    avgTable.push(avg_graphics_rating);
-    avgTable.push(avg_game_play_rating);
-    avgTable.push(avg_replayability_rating);
-    avgTable.push(avg_soundtrack_rating);
-    avgTable.push(avg_average);
+    avgTable.push(avg_graphics_rating.toFixed(2));
+    avgTable.push(avg_game_play_rating.toFixed(2));
+    avgTable.push(avg_replayability_rating.toFixed(2));
+    avgTable.push(avg_soundtrack_rating.toFixed(2));
+    avgTable.push(avg_average.toFixed(2));
 
     return avgTable;
   }
