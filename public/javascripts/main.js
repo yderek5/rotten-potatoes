@@ -55,36 +55,22 @@ $("document").ready(function () {
 	});
 
 
-		$("#review-form").on("submit", function (event) {
-			event.preventDefault();
-			var url = location.href;
-			var average = 0;
-			var gameId = url.substring(url.lastIndexOf('/') + 1);
-
-			average = (parseInt(gameplay) + parseInt(replayability) + parseInt(graphics) + parseInt(soundtrack))/4;
-			console.log(average);
-			description = $("#description").val();
-
-			if (gameplay === null || replayability === null || graphics === null || soundtrack === null){
-				alert("Please finish filling out all parts of the form!");
-			} else {
-				$.ajax({
-					url: '/reviews/api',
-					method: 'POST',
-					data: {
-						gameId: gameId,
-						gameplay: gameplay,
-						replayability: replayability,
-						graphics: graphics,
-						soundtrack: soundtrack,
-						description: description,
-						average: average
-					},
-					success: location.href = '/reviews' + '/' + gameId
-				}).then(function() {
-					setTimeout(location.reload(), 3000);
-				});
-			}
+			$.ajax({
+				url: '/reviews/api',
+				method: 'POST',
+				data: {
+					gameId: gameId,
+					gameplay: gameplay,
+					replayability: replayability,
+					graphics: graphics,
+					soundtrack: soundtrack,
+					description: description,
+					average: average
+				},
+				success: location.href = '/reviews' + '/' + gameId
+			}).then(function() {
+				setTimeout(location.reload(), 3000);
+			});
 		});
 
 
