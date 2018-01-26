@@ -24,12 +24,12 @@ router.route('/')
                 var transporter = nodemailer.createTransport({
                     service: 'yahoo',
                     auth: {
-                        user: 'EXAMPLE@EXAMPLE.COM',
-                        pass: 'PASSWORD',
+                        user: 'rottenpotatoes@yahoo.com',
+                        pass: 'gamereview123',
                     }
                 });
                 var mailOptions = {
-                    from: 'EXAMPLE@EXAMPLE.COM',
+                    from: 'rottenpotatoes@yahoo.com',
                     to: data.email,
                     subject: 'Forgot Password',
                     html: '<p>Go here to reset password<p>' +
