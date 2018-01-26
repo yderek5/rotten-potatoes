@@ -155,3 +155,18 @@ footer {
  form#login {
    margin-top: 20px;
  }
+
+ label > input {
+   visibility: hidden;
+   position: absolute;
+ }
+ label > input + img {
+  cursor: pointer;
+  opacity: 0.5;
+ }
+ label > input:checked + img {
+  opacity: 1;
+ }
+ input[type=radio] {
+   margin-right: 30px;
+ }
