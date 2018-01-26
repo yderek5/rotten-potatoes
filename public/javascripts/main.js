@@ -81,6 +81,7 @@ $("document").ready(function () {
 			}).then(function() {
 				setTimeout(location.reload(), 3000);
 			});
+
 		});
 
 
