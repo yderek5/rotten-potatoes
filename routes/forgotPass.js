@@ -33,7 +33,7 @@ router.route('/')
                     to: data.email,
                     subject: 'Forgot Password',
                     html: '<p>Go here to reset password<p>' +
-                    '<br>' + '<a href="http://localhost:3000/forgot/new"><p>Rotten Potatoes reset password</p></a>'
+                    '<br>' + '<a href="https://rotten-potatoes-90454.herokuapp.com/forgot/new"><p>Rotten Potatoes reset password</p></a>'
                 };
                 transporter.sendMail(mailOptions, function(error, info) {
                     if(error) {
