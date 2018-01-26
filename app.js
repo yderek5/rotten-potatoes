@@ -28,11 +28,11 @@ hbs.registerHelper('image_swap_med', function(score) {
   else if (score >= 6 && score > 0){
       image = "/images/rotten-potatos-status-fresh-md.png"
   }
-  else if (isNaN(score)){
-    image = "/images/rotten-potatos-status-new-md.png"
+  else if (score < 6 && score > 0){
+    image = "/images/rotten-potatos-status-rotten-md.png"
   }
   else {
-      image = "/images/rotten-potatos-status-rotten-md.png"
+      image = "/images/rotten-potatos-status-new-md.png"
   }
   return image;
  });
@@ -43,14 +43,14 @@ hbs.registerHelper('image_swap_med', function(score) {
   if (score >= 8){
       image = "/images/rotten-potatos-status-baked-sm.png"
   }
-  else if (score >= 6 && score > 0){
+  else if (score >= 6){
       image = "/images/rotten-potatos-status-fresh-sm.png"
   }
-  else if (isNaN(score)){
-    image = "/images/rotten-potatos-status-new-sm.png"
+  else if (score < 6 && score > 0){
+    image = "/images/rotten-potatos-status-rotten-sm.png"
   }
   else {
-      image = "/images/rotten-potatos-status-rotten-sm.png"
+      image = "/images/rotten-potatos-status-new-sm.png"
   }
   return image;
  });

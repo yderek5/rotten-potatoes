@@ -114,7 +114,7 @@ module.exports = function(app,passport){
           }
         }
       }).then(function(data){
-        res.render('./home/gameList', {title: 'game list',  gamesList: data, loggedin: req.isAuthenticated(),firstname: firstname});
+        res.render('./home/search', {title: 'game list',  gamesList: data, loggedin: req.isAuthenticated(),firstname: firstname});
       })
 
   });
