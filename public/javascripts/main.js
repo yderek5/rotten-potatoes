@@ -55,6 +55,16 @@ $("document").ready(function () {
 	});
 
 
+		$("#review-form").on("submit", function (event) {
+			event.preventDefault();
+			var url = location.href;
+			var average = 0;
+			var gameId = url.substring(url.lastIndexOf('/') + 1);
+
+			average = (parseInt(gameplay) + parseInt(replayability) + parseInt(graphics) + parseInt(soundtrack))/4;
+			console.log(average);
+			description = $("#description").val();
+
 			$.ajax({
 				url: '/reviews/api',
 				method: 'POST',
@@ -71,6 +81,7 @@ $("document").ready(function () {
 			}).then(function() {
 				setTimeout(location.reload(), 3000);
 			});
+
 		});
 
 
