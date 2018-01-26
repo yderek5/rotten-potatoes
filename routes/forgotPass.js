@@ -64,16 +64,11 @@ router.route('/new')
                 where: {
                     email: emailAddress
                 }
-            }).then(function(error, info) {
-                if(error) {
-                    if(error) throw error;
-                } else {
-                    console.log("Password Updated:" + info.response);
-                    res.redirect('/login');
-                }
+            }).then(function() {
+                res.redirect('/login');
             });
         } else {
-            return "Your passwords don't match";
+            // flash message? passwords don't match
         }
     })
 module.exports = router;
