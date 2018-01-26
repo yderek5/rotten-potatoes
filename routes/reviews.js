@@ -26,10 +26,10 @@ module.exports = function(app,passport){
                 }
             }).then(function(childData){
                 //pushes to the average table of all games
-                db.average_table.update({
+                db.game_tables.update({
                     average: average,
                 },{where: {
-                        gameId: gameId,
+                        id: gameId,
                     }
                 })
                 res.render('./reviews/index', {title: 'Reviews', gameReviews:data, gameData: childData, loggedin: req.isAuthenticated(),firstname: firstname});
