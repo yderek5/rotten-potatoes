@@ -23,6 +23,9 @@ module.exports = function(sequelize, DataTypes){
         }, 
         original_release_date: {
             type:DataTypes.DATEONLY,
+        },
+        average: {
+            type: DataTypes.DECIMAL(4,2),
         }
     }, {
         timestamps:false,
