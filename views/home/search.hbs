@@ -5,29 +5,25 @@
     {{> header}}
 {{/if}}
 
-{{!-- Display game title search results --}}
-{{#each games}}
+{{!-- Display list of all games in database --}}
+<h3>Search Results>></h3>
+<p>Click on game titles below to view details.</p>
 
-	<div class='card'>
-		<div class='card-header'>
-				<h4>
-					{{this.name}}
-				</h4>
-		</div>
-			<ul class = "list-group list-group-flush">
-				<li class = "list-group-item">
-					<img src="{{this.image_thumbnail}}" alt="Game Thumbnail">
-				</li>
-				<li class = "list-group-item">
-					Original Release Date: {{this.original_release_date}}
-				</li>
-				<li class = "list-group-item">
-					Platforms: {{this.platforms}}
-				</li>
-				
-			</ul>
-	</div>
-{{/each}}
+<table id="gamelist">
+    <tr>
+        <th>Image</th>
+        <th>Game Name</th>
+        <th>Description</th>
+    </tr>
+    {{#each gamesList}}
+    <tr>
+        <td style="width:100px"><img class = "list_thumb" src="{{this.image_thumbnail}}"></td>
+        <td style="width:180px"><a href="/games/{{this.id}}">{{this.name}}</a></td>
+        <td>{{this.description}}</td>
+    </tr>
+    {{/each}}
+</table>
+
 		
 
 
