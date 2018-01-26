@@ -65,22 +65,26 @@ $("document").ready(function () {
 			console.log(average);
 			description = $("#description").val();
 
-			$.ajax({
-				url: '/reviews/api',
-				method: 'POST',
-				data: {
-					gameId: gameId,
-					gameplay: gameplay,
-					replayability: replayability,
-					graphics: graphics,
-					soundtrack: soundtrack,
-					description: description,
-					average: average
-				},
-				success: location.href = '/reviews' + '/' + gameId
-			}).then(function() {
-				setTimeout(location.reload(), 3000);
-			});
+			if (gameplay === null || replayability === null || graphics === null || soundtrack === null){
+				alert("Please finish filling out all parts of the form!");
+			} else {
+				$.ajax({
+					url: '/reviews/api',
+					method: 'POST',
+					data: {
+						gameId: gameId,
+						gameplay: gameplay,
+						replayability: replayability,
+						graphics: graphics,
+						soundtrack: soundtrack,
+						description: description,
+						average: average
+					},
+					success: location.href = '/reviews' + '/' + gameId
+				}).then(function() {
+					setTimeout(location.reload(), 3000);
+				});
+			}
 		});
 
 
