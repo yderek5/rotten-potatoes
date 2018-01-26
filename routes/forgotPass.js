@@ -25,7 +25,7 @@ router.route('/')
                     service: 'yahoo',
                     auth: {
                         user: 'rottenpotatoes@yahoo.com',
-                        pass: 'Gamereview123',
+                        pass: 'blahblah@123',
                     }
                 });
                 var mailOptions = {
