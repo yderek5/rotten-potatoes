@@ -103,6 +103,35 @@ $("document").ready(function () {
 		});
 	// })
 
+		$("#new-game").on("click",function(){
+
+			var formattedDate = new Date($(this).data("original_release_date"));
+			formattedDate = moment(formattedDate).format("YYYY-MM-DD");
+
+			var game = {
+				external_id: $(this).data("external_id"),
+				name: $(this).data("name"),
+				description: $(this).data("description"),
+				image_thumbnail: $(this).data("image_thumbnail"),
+				image_original: $(this).data("image_original"),
+				original_release_date: formattedDate
+			}
+			
+			$.ajax({
+				url: '/games/new',
+				method: 'POST',
+				data: {
+					game: game
+				}
+			}).then(function(response) {
+				location.href = response.url;
+			});
+
+			//console.log("Game ext id: " + game.original_release_date);
+
+
+		})
+
 
 
 // ===========================================================================

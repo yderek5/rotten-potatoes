@@ -170,6 +170,13 @@ module.exports = function(app,passport){
   });
 
 
+  var externalSearch = require('./externalSearch.js');
+   /* get external games */
+  router.get('/external/search',externalSearch);
+
+
+
+
   //function to get the average ratings of all reviews for a specific game
   var getAverage = function(table){
     var total_graphics_rating = 0;
