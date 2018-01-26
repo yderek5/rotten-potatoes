@@ -69,7 +69,7 @@ router.route('/new')
                     if(error) throw error;
                 } else {
                     console.log("Password Updated:" + info.response);
-                    res.redirect('./login');
+                    res.redirect('/login');
                 }
             });
         } else {
