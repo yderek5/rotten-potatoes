@@ -169,6 +169,33 @@ module.exports = function(app,passport){
 
   });
 
+  router.post("/games/new", function(req, res){
+    var firstname = '';
+    if(req.user){
+      firstname = req.user.firstname; 
+    }
+    
+    db.game_tables.findOne({
+      where: {
+        external_id: req.body.game.external_id
+      }
+    }).then(function(data){
+      if (data === null){
+        db.game_tables.create({
+          name: req.body.game.name, 
+          description: req.body.game.description,
+          image_thumbnail: req.body.game.image_thumbnail,
+          image_original: req.body.game.image_original,
+          external_id: req.body.game.external_id,
+          original_release_date: req.body.game.original_release_date,
+        })
+      }
+    })
+
+    
+
+    
+  })
 
   var externalSearch = require('./externalSearch.js');
    /* get external games */
