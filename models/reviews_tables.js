@@ -6,7 +6,7 @@ module.exports = function(sequelize, DataTypes){
             autoIncrement: true
         },
         comment: {
-            type: DataTypes.STRING
+            type: DataTypes.TEXT,
         }, 
         graphics_rating: {
             type: DataTypes.INTEGER, 
