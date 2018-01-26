@@ -66,11 +66,10 @@ router.route('/new')
                 }
             }).then(function(error, info) {
                 if(error) {
-                    console.log(error);
-                    // flash error here? password not updated or something
+                    if(error) throw error;
                 } else {
                     console.log("Password Updated:" + info.response);
-                    res.redirect('/login');
+                    res.redirect('./login');
                 }
             });
         } else {
