@@ -41,6 +41,7 @@ module.exports = function(app,passport){
     /* POST review form data */
     router.post('/api', function(req, res) {
         // THIS IS WHERE THE REVIEW FORM GOES
+        console.log(req.body);
        
         var firstname = '';
         if(req.user){
