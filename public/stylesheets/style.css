@@ -29,7 +29,6 @@ a {
   margin-top: 30px;
 }
 
-
 h3 {
   font-size: 30px;
   margin-top: 6px;
@@ -167,6 +166,13 @@ footer {
  label > input:checked + img {
   opacity: 1;
  }
+
  input[type=radio] {
    margin-right: 30px;
+ }
+
+th {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 20px;
+    border-radius: 10px;
  }

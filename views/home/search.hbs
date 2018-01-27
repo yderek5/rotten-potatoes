@@ -11,11 +11,12 @@
 
 <br>
 <form class="form-inline my-2 my-lg-0" id="externalSearchSubmit" method="get" name="searchSubmit" action="/external/search">
-    <input id="external-search" class="form-control mr-sm-2" type="search" placeholder="Search Game Titles to Add" aria-label="Search" name="externalSearchTerm">
+    <input id="external-search" class="form-control mr-sm-2 w-50" type="search" placeholder="Search Game Titles to Add" aria-label="Search" name="externalSearchTerm">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 </form>
 <br>
 
+{{#if gamesList includeZero=true}}
 <table id="gamelist">
     <tr>
         <th>Image</th>
@@ -30,4 +31,8 @@
     </tr>
     {{/each}}
 </table>
-
+{{else}}
+<div class="alert alert-warning" role="alert">
+  <strong>Sorry, no results were found for your search.</strong>
+</div>
+{{/if}}
