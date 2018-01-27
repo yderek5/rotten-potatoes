@@ -69,7 +69,6 @@ module.exports = function(app,passport){
 
 
       var averages = getAverage(data.dataValues.reviews_tables);
-      //console.log(averages);
       res.render('./home/game', { 
         overallScore: averages[4],
         replayability: averages[2],
@@ -89,8 +88,6 @@ module.exports = function(app,passport){
 
   /* GET list of all games we have on record */
   router.get('/games', function(req, res) {
-   // console.log("get route"); //this part works
-      // console.log(db.game_tables);
       var firstname = '';
       if(req.user){
         firstname = req.user.firstname;
@@ -130,7 +127,6 @@ module.exports = function(app,passport){
             userId: req.user.id,
         }, include: [db.game_tables],
     }).then(function(data){
-      console.log(data)
       var firstname = '';
       if(req.user){
         firstname = req.user.firstname;
@@ -169,6 +165,7 @@ module.exports = function(app,passport){
 
   });
 
+  // Add news game external db to our game database
   router.post("/games/new", function(req, res){
     var firstname = '';
     if(req.user){
@@ -247,13 +244,11 @@ module.exports = function(app,passport){
     var indexGame = 0;
     for (var i = 0; i < data.length; i++){
       indexGame = gamesList.indexOf(data[i].dataValues.gameTableId);
-      // console.log(indexGame);
       if (indexGame = -1){
         gamesList.push(data[i].dataValues.gameTableId);
       }
     }
     var newGamesList = gamesList.slice(9);
-    console.log(newGamesList)
     return newGamesList;
   }
 
