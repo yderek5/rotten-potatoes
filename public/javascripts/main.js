@@ -104,7 +104,7 @@ $("document").ready(function () {
 		});
 	// })
 
-		$("#new-game").on("click",function(){
+		$(".new-game").on("click",function(){
 
 			var formattedDate = new Date($(this).data("original_release_date"));
 			formattedDate = moment(formattedDate).format("YYYY-MM-DD");

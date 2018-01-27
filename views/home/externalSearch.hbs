@@ -25,7 +25,7 @@
     {{#each games}}
     <tr>
         <td style="width:100px"><img class = "list_thumb" src="{{this.image_thumbnail}}"></td>
-        <td style="width:180px"><a data-external_id="{{this.external_id}}" data-name="{{this.name}}" data-description="{{this.description}}" data-image_thumbnail="{{this.image_thumbnail}}" data-image_original="{{this.image_original}}" data-original_release_date="{{this.original_release_date}}" href="/" id="new-game">{{this.name}}</a></td>
+        <td style="width:180px"><a data-external_id="{{this.external_id}}" data-name="{{this.name}}" data-description="{{this.description}}" data-image_thumbnail="{{this.image_thumbnail}}" data-image_original="{{this.image_original}}" data-original_release_date="{{this.original_release_date}}" href="/" class="new-game">{{this.name}}</a></td>
         <td>{{this.description}}</td>
     </tr>
     {{/each}}
