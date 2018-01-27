@@ -156,7 +156,12 @@ module.exports = function(app,passport){
         console.log('data:' + data.length);
         var autoCompleteOptions = [];
         for (i=0;i < data.length;i++){
-          autoCompleteOptions.push(data[i].name);
+        	var game = {
+        		value: 'games/' + data[i].id,
+        		label: data[i].name
+        	}
+
+          autoCompleteOptions.push(game);
         }
 
         res.send(autoCompleteOptions);

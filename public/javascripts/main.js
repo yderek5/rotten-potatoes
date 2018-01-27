@@ -101,6 +101,9 @@ $("document").ready(function () {
 				});
 
 			},
+			select: function( event, ui ) { 
+            	window.location.href = ui.item.value;
+        	},
 			minLength: 2
 		});
 	// })
