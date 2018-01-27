@@ -65,17 +65,21 @@ $("document").ready(function () {
 			console.log(average);
 			description = $("#description").val();
 
+			var review = {
+				gameId: gameId,
+				gameplay: gameplay,
+				replayability: replayability,
+				graphics: graphics,
+				soundtrack: soundtrack,
+				description: description,
+				average: average
+			}
+
 			$.ajax({
 				url: '/reviews/api',
 				method: 'POST',
 				data: {
-					gameId: gameId,
-					gameplay: gameplay,
-					replayability: replayability,
-					graphics: graphics,
-					soundtrack: soundtrack,
-					description: description,
-					average: average
+					review: review,
 				},
 				success: location.href = '/reviews' + '/' + gameId
 			}).then(function(response) {
