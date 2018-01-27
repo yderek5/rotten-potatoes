@@ -179,3 +179,8 @@ th {
     font-family: 'Share Tech Mono', monospace;
     font-size: 20px;
  }
+
+.card.logout {
+  border: 3px solid #5a5646;
+  border-radius: 8px;
+}
