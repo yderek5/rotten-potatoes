@@ -9,11 +9,16 @@
 <h3>Search Results>></h3>
 <p>Click on game titles below to view details.</p>
 
-<br>
-<form class="form-inline my-2 my-lg-0" id="externalSearchSubmit" method="get" name="searchSubmit" action="/external/search">
-    <input id="external-search" class="form-control mr-sm-2 w-50" type="search" placeholder="Search Game Titles to Add" aria-label="Search" name="externalSearchTerm">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-</form>
+<div class = "card">
+	<h5 class = "card-header">Add A New Game</h5>
+	<div class ="card-body">
+        <p>If there is a game that you have searched for that is not already in our database, use this search block to search Giant Bomb. Clicking on the title will add it to our database.</p>
+        <form class="form-inline my-2 my-lg-0" id="externalSearchSubmit" method="get" name="searchSubmit" action="/external/search">
+            <input id="external-search" class="form-control mr-sm-2 w-50" type="search" placeholder="Search Game Titles to Add" aria-label="Search" name="externalSearchTerm">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</div>
 <br>
 
 <table id="gamelist">
