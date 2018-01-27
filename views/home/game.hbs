@@ -1,5 +1,11 @@
-{{!-- Swapping header based on whether user is looged in --}} {{#if loggedin}} {{> header_loggedin}} {{else}} {{> header}}
-{{/if}} {{!-- Game information and review averages--}}
+{{!-- Swapping header based on whether user is looged in --}}
+{{#if loggedin}}
+	{{> header_loggedin}}
+{{else}}
+	{{> header}}
+{{/if}}
+
+{{!-- Game information and review averages--}}
 <div class='row'>
 	<div class='col-md-7 content-game-main'>
 		<h3>{{gameTitle}}</h3>
@@ -60,29 +66,12 @@
 
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
 
-					{{!-- Swapping content based on whether user is logged in --}} {{#if loggedin}} {{> review_form}} {{else}} {{> review_login_message}}
-					<form id="inPageLogin" name="login" method="post" action="/login/ReviewPage">
-						<div class="form-group">
-							<label for="email">Email Address</label>
-							<input class="text form-control" name="email" type="text" />
-						</div>
-						<div class="form-group">
-							<label for="password">Password</label>
-							<input class="form-control" name="password" type="password" />
-						</div>
-						<input class="btn btn-success mb-2" type="submit" value="Log In" />
-					</form>
-					<p>
-						<a href="/forgot">Forgot Password?</a>
-					</p>
-					<p>Don't have an account? Click
-						<a href="/register">here</a> to create one.</p>
-
-					{{#if message}}
-					<div class="alert alert-danger" role="alert">
-						<strong>{{message}}</strong>
-					</div>
-					{{/if}} {{/if}}
+					{{!-- Swapping content based on whether user is logged in --}}
+					{{#if loggedin}}
+						{{> review_form}}
+					{{else}}
+						{{> review_login_form}}
+					{{/if}}
 
 				</div>
 			</div>
