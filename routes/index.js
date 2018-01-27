@@ -191,10 +191,6 @@ module.exports = function(app,passport){
         })
       }
     })
-
-    
-
-    
   })
 
   var externalSearch = require('./externalSearch.js');
