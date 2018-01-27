@@ -1,6 +1,4 @@
-	
 module.exports = function(app,passport){
-
 	var express = require('express');
 	var router = express.Router();
 
@@ -17,9 +15,14 @@ module.exports = function(app,passport){
 	 			failureRedirect: '/login',
 	 			failureFlash: true
 
-	 		}
- 		)
- 	)
+			 }));
+			 
+	router.post('/ReviewPage',passport.authenticate('local-login',
+			{
+				successRedirect: '/games',
+				failureRedirect: '/login',
+				failureFlash: true
+			}));
 
 
 return router;

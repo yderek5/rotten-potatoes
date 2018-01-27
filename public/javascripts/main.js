@@ -83,7 +83,8 @@ $("document").ready(function () {
 			});
 
 		});
-
+// Search Box
+// ===========================================================================
 
 	// $(function(){	
 		$("#searchBox").autocomplete({
