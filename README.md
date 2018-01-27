@@ -9,4 +9,6 @@ From there every review's overall score is averaged into one score giving the ga
 
 ## To view on localhost:3000
 Clone this repository navigate into it and run `npm install` then you can run `npm start` and open your browser to `localhost:3000`.
+* Created By:
+Leo Galey, Chris Lynam, Jackie Nguyen, and Derek Young
 
