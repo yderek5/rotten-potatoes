@@ -50,13 +50,13 @@ module.exports = function(app,passport){
 
         
         db.reviews_tables.create({
-            comment: req.body.description,
-            graphics_rating: req.body.graphics,
-            game_play_rating: req.body.gameplay,
-            replayability: req.body.replayability,
-            soundtrack: req.body.soundtrack,
-            average: req.body.average,
-            gameTableId: req.body.gameId, 
+            comment: req.body.review.description,
+            graphics_rating: req.body.review.graphics,
+            game_play_rating: req.body.review.gameplay,
+            replayability: req.body.review.replayability,
+            soundtrack: req.body.review.soundtrack,
+            average: req.body.review.average,
+            gameTableId: req.body.review.gameId, 
             userId: req.user.id
         }).then(function(result){
             var url = "/reviews/" + result.dataValues.gameTableId;
