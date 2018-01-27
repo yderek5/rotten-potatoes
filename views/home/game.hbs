@@ -1,51 +1,47 @@
-{{!-- Swapping header based on whether user is looged in --}}
-{{#if loggedin}}
-		{{> header_loggedin}}
-{{else}}
-		{{> header}}
-{{/if}}
-
-{{!-- Game information and review averages--}}
+{{!-- Swapping header based on whether user is looged in --}} {{#if loggedin}} {{> header_loggedin}} {{else}} {{> header}}
+{{/if}} {{!-- Game information and review averages--}}
 <div class='row'>
 	<div class='col-md-7 content-game-main'>
 		<h3>{{gameTitle}}</h3>
-		<div><img width = "300" src="{{gameImage}}" alt="" id="game-main-image"></div>
+		<div>
+			<img width="300" src="{{gameImage}}" alt="" id="game-main-image">
+		</div>
 		{{gameDescription}}
 	</div>
 	<div class='col-md-5 content-game-stats'>
-			<div class='card reviews'>
-				<div class='card-header'>
-						<h4>Reviews</h4>
-				</div>
-					<ul class='list-group game-stat-list'>
-						<li class='list-group-item game-stat'>
-							<img src = "{{image_swap_med overallScore}}">
-						</li>
-						<li class='list-group-item game-stat overall'>
-							<strong>Overall Score&nbsp;&nbsp;</strong>
-							<span class="badge badge-dark">{{replace_nan overallScore}}</span>
-						</li>
-						<li class='list-group-item game-stat'>
-							Game Play&nbsp;&nbsp;
-							<span class="badge badge-secondary">{{replace_nan gameplay}}</span>
-						</li>
-						<li class='list-group-item game-stat'>
-							Replayability&nbsp;&nbsp;
-							<span class='badge badge-secondary'>{{replace_nan replayability}}</span>
-						</li>
-						<li class='list-group-item game-stat'>
-							Graphics&nbsp;&nbsp;
-							<span class='badge badge-secondary'>{{replace_nan graphics}}</span>
-						</li>
-						<li class='list-group-item game-stat'>
-							Soundtrack&nbsp;&nbsp;
-							<span class='badge badge-secondary'>{{replace_nan soundtrack}}</span>
-						</li>
-						<li class='list-group-item game-stat'>
-							{{link_nan gameid overallScore}}
-						</li>
-					</ul>
+		<div class='card reviews'>
+			<div class='card-header'>
+				<h4>Reviews</h4>
 			</div>
+			<ul class='list-group game-stat-list'>
+				<li class='list-group-item game-stat'>
+					<img src="{{image_swap_med overallScore}}">
+				</li>
+				<li class='list-group-item game-stat overall'>
+					<strong>Overall Score&nbsp;&nbsp;</strong>
+					<span class="badge badge-dark">{{replace_nan overallScore}}</span>
+				</li>
+				<li class='list-group-item game-stat'>
+					Game Play&nbsp;&nbsp;
+					<span class="badge badge-secondary">{{replace_nan gameplay}}</span>
+				</li>
+				<li class='list-group-item game-stat'>
+					Replayability&nbsp;&nbsp;
+					<span class='badge badge-secondary'>{{replace_nan replayability}}</span>
+				</li>
+				<li class='list-group-item game-stat'>
+					Graphics&nbsp;&nbsp;
+					<span class='badge badge-secondary'>{{replace_nan graphics}}</span>
+				</li>
+				<li class='list-group-item game-stat'>
+					Soundtrack&nbsp;&nbsp;
+					<span class='badge badge-secondary'>{{replace_nan soundtrack}}</span>
+				</li>
+				<li class='list-group-item game-stat'>
+					{{link_nan gameid overallScore}}
+				</li>
+			</ul>
+		</div>
 	</div>
 </div>
 
@@ -55,21 +51,38 @@
 		<div id="accordion">
 			<div class='card reviews'>
 				<div class='card-header' id="headingOne">
-						<h4>
-							<button class="btn btn-success" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-								Review This Game!
-							</button>
-						</h4>
+					<h4>
+						<button class="btn btn-success" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+							Review This Game!
+						</button>
+					</h4>
 				</div>
 
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
 
-					{{!-- Swapping content based on whether user is logged in --}}
-					{{#if loggedin}}
-						{{> review_form}}
-					{{else}}
-						{{> review_login_message}}
-					{{/if}}
+					{{!-- Swapping content based on whether user is logged in --}} {{#if loggedin}} {{> review_form}} {{else}} {{> review_login_message}}
+					<form id="inPageLogin" name="login" method="post" action="/login/ReviewPage">
+						<div class="form-group">
+							<label for="email">Email Address</label>
+							<input class="text form-control" name="email" type="text" />
+						</div>
+						<div class="form-group">
+							<label for="password">Password</label>
+							<input class="form-control" name="password" type="password" />
+						</div>
+						<input class="btn btn-success mb-2" type="submit" value="Log In" />
+					</form>
+					<p>
+						<a href="/forgot">Forgot Password?</a>
+					</p>
+					<p>Don't have an account? Click
+						<a href="/register">here</a> to create one.</p>
+
+					{{#if message}}
+					<div class="alert alert-danger" role="alert">
+						<strong>{{message}}</strong>
+					</div>
+					{{/if}} {{/if}}
 
 				</div>
 			</div>
