@@ -78,9 +78,10 @@ $("document").ready(function () {
 					average: average
 				},
 				success: location.href = '/reviews' + '/' + gameId
-			}).then(function() {
-				setTimeout(location.reload(), 3000);
+			}).then(function(response) {
+				location.href = response.url;
 			});
+
 
 		});
 // Search Box

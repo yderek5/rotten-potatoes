@@ -57,7 +57,10 @@ module.exports = function(app,passport){
             average: req.body.average,
             gameTableId: req.body.gameId, 
             userId: req.user.id
-        })
+        }).then(function(result){
+            var url = "/reviews/" + result.dataValues.gameTableId;
+            res.send({url:url})
+          })
     });
 
     /* GET edit page */

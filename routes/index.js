@@ -189,7 +189,6 @@ module.exports = function(app,passport){
           external_id: req.body.game.external_id,
           original_release_date: req.body.game.original_release_date,
         }).then(function(result){
-          console.log(result);
           var url = "/games/" + result.dataValues.id;
           res.send({url:url})
         })
